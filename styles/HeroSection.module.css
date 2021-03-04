@@ -1,0 +1,5 @@
+.heroSection {
+    width: 100%;
+    max-width: none;
+    min-height: calc(100vh - 6rem - 7px); /* Remove navbar area from the top */
+}
