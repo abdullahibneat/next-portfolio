@@ -1,0 +1,71 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+.links a {
+    color: black;
+}
+
+/* Only underline link if user is in that page */
+.links a:not(.currentPage) {
+    text-decoration: none;
+}
+
+/* Mobile */
+@media only screen and (max-width: 600px) {
+    .links a {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    
+    /* Hide links if not open */
+    .links:not(.mobile) a {
+        display: none;
+    }
+
+    .mobileToggle {
+        font-size: 1.75rem;
+    }
+    
+    /* On mobile make the navbar links take the full screen */
+    .mobile {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary-color);
+    }
+
+    /* Display the ✖ in the same place as ☰ */
+    .mobile .mobileToggle {
+        position: absolute;
+        top: 2rem;
+        width: 80%;
+        text-align: right;
+    }
+}
+
+/* Desktop */
+@media only screen and (min-width: 600px) {
+    .links a:not(:last-of-type) {
+        margin-right: 5rem;
+    }
+
+    .mobileToggle {
+        display: none;
+    }
+}
