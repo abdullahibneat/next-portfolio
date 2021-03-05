@@ -1,12 +1,15 @@
 import styles from "../styles/Navbar.module.css"
 import Link from "next/link"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Section from "./Section"
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
     const { pathname } = useRouter()
+
+    // Close mobile navbar when a link is clicked (i.e. when URL changes)
+    useEffect(() => setOpen(false), [pathname])
 
     return <Section className={styles.container}>
         <div className={styles.logo}>LOGO</div>
