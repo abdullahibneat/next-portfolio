@@ -35,16 +35,25 @@
     .mobileToggle {
         font-size: 1.75rem;
     }
+
+    /* Animation to slide down the mobile navbar */
+    @keyframes slideDown {
+        from {transform: translateY(-100%);}
+        to {transform: translateY(0);}
+    }
     
     /* On mobile make the navbar links take the full screen */
     .mobile {
         position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
+        top: 0; left: 0;
+        width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         background: var(--primary-color);
+        animation: slideDown 1s cubic-bezier(0.165, 0.84, 0.44, 1);
     }
 
     /* Display the ✖ in the same place as ☰ */
