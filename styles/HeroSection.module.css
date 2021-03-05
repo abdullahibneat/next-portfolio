@@ -1,5 +1,8 @@
 .heroSection {
     width: 100%;
     max-width: none;
-    min-height: calc(100vh - 6rem - 7px); /* Remove navbar area from the top */
+    min-height: 100vh;
+    /* Remove navbar area from the top */
+    margin-top: calc(-6rem - 7px);
+    padding-top: calc(6rem + 7px);
 }
