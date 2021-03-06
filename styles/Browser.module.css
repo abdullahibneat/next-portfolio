@@ -1,0 +1,28 @@
+.browser {
+    border: solid 2px #ccc;
+    border-radius: 1rem;
+    background: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+}
+
+.browserControls {
+    padding: 0.25rem 0.6rem;
+}
+
+.browserControls > span {
+    display: inline-block;
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background: yellow;
+    margin-right: 0.3rem;
+}
+
+.content {
+    padding: 0.5rem;
+    background: white;
+    border-radius: 0 0 1rem 1rem;
+    /* Take all remaining height */
+    flex: 1;
+}
