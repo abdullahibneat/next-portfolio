@@ -11,6 +11,10 @@
     color: var(--primary-color);
 }
 
+.container, .links {
+    z-index: 99;
+}
+
 .links a {
     color: black;
 }
