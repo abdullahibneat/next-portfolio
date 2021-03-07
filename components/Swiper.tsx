@@ -32,7 +32,7 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, zDistance, index
     const style: CSS.Properties = {
         zIndex: -index,
         transform: `translate(${(mouseState.current.x - mouseState.down.x) / 2}px, ${(mouseState.current.y - mouseState.down.y) / 2}px)
-            rotateZ(${(mouseState.current.x - mouseState.down.x) / 4}deg) rotateY(-20deg) translateZ(${-index * zDistance}px)`,
+            rotateZ(${(mouseState.current.x - mouseState.down.x) / 25}deg) rotateY(-20deg) translateZ(${-index * zDistance}px)`,
         opacity: `${opacity}%`
     }
 
