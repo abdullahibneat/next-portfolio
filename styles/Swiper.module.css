@@ -1,6 +1,6 @@
 .swiper {
     position: relative;
-    perspective: 600px;
+    perspective: 150vw;
 
     /* Center Swipable cards */
     display: flex;
