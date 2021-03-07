@@ -1,0 +1,67 @@
+.hero {
+    /* Wave in the background */
+    background-image: url("/triangle.svg");
+    background-position: bottom right;
+    background-size: auto 60%;
+    background-repeat: no-repeat;
+
+    /* Remove navbar space */
+    margin-top: calc(-6rem - 7px);
+    
+    /* Disable horizontal scroll caused by swiper */
+    overflow-x: hidden;
+}
+
+.hero, .content {
+    display: flex;
+    align-items: center;
+}
+
+.content {
+    flex-direction: column;
+}
+
+.heroText {
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+
+.browsers, .browser {
+    height: 75vw;
+    width: 75vw;
+}
+
+.browser {
+    height: 50vw;
+}
+
+@media only screen and (min-width: 600px) {
+    .hero {
+        background-size: 70% 70%;
+    }
+
+    .content {
+        flex-direction: row;
+    }
+
+    .content > div {
+        width: 50%;
+    }
+
+    .heroText {
+        text-align: initial;
+        padding-bottom: 0;
+        padding-right: 2rem;
+    }
+
+    .browsers, .browser {
+        width: 40vw;
+    }
+
+    .browser {
+        height: 30vh;
+        max-width: 400px;
+    }
+}
