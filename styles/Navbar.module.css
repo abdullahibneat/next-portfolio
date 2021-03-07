@@ -38,6 +38,8 @@
 
     .mobileToggle {
         font-size: 1.75rem;
+        cursor: pointer;
+        user-select: none;
     }
 
     /* Animation to slide down the mobile navbar */
