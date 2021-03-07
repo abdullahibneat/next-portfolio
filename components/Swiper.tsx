@@ -3,6 +3,7 @@ import CSS from "csstype"
 import styles from "../styles/Swiper.module.css"
 
 type SwipableProps = {
+    zDistance: number,
     index: number,
     onSwipe?: (index: number) => void
 }
@@ -13,7 +14,7 @@ type MouseEvent = {
 }
 
 // Swipable component used as a wrapper around content
-const Swipable: FunctionComponent<SwipableProps> = ({ children, index, onSwipe = () => {} }) => {
+const Swipable: FunctionComponent<SwipableProps> = ({ children, zDistance, index, onSwipe = () => {} }) => {
     // Keep track of mouse position
     const initialState = {
         down: { x: 0, y: 0 },
@@ -31,7 +32,7 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, index, onSwipe =
     const style: CSS.Properties = {
         zIndex: -index,
         transform: `translate(${(mouseState.current.x - mouseState.down.x) / 2}px, ${(mouseState.current.y - mouseState.down.y) / 2}px)
-            rotateZ(${(mouseState.current.x - mouseState.down.x) / 4}deg) rotateY(-20deg) translateZ(${-index * 50}px)`,
+            rotateZ(${(mouseState.current.x - mouseState.down.x) / 4}deg) rotateY(-20deg) translateZ(${-index * zDistance}px)`,
         opacity: `${opacity}%`
     }
 
@@ -83,10 +84,11 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, index, onSwipe =
 }
 
 type SwiperProps = {
-    className?: string
+    className?: string,
+    zDistance?: number
 }
 
-const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "" }) => {
+const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "", zDistance = 50 }) => {
     // Convert children elements to an array
     const [cards] = useState(React.Children.toArray(children))
     // Control the z-index position of each card
@@ -100,7 +102,7 @@ const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "" }) =>
     }
 
     return <div className={`${styles.swiper} ${className}`}>
-        {cards.map((content, i) => <Swipable index={cardPositions[i]} key={i} onSwipe={handleSwipe}>
+        {cards.map((content, i) => <Swipable zDistance={zDistance} index={cardPositions[i]} key={i} onSwipe={handleSwipe}>
             {content}
         </Swipable>)}
     </div>
