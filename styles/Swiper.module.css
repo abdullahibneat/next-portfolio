@@ -1,0 +1,19 @@
+.swiper {
+    position: relative;
+    perspective: 600px;
+}
+
+.swipable {
+    /* Center items */
+    position: absolute;
+
+    cursor: move;
+    user-select: none;
+    transition: all linear 0.5s;
+    transform-origin: bottom;
+}
+
+/* Remove transition while moving items */
+.moved {
+    transition: none;
+}
