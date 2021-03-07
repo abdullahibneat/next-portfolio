@@ -58,6 +58,7 @@
 
     .browsers, .browser {
         width: 40vw;
+        height: auto;
     }
 
     .browser {
