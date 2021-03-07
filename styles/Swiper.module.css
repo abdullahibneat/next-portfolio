@@ -1,6 +1,11 @@
 .swiper {
     position: relative;
     perspective: 600px;
+
+    /* Center Swipable cards */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .swipable {
