@@ -14,7 +14,7 @@
 
     cursor: move;
     user-select: none;
-    transition: all linear 0.5s;
+    transition: all ease 0.5s;
     transform-origin: bottom;
 }
 
