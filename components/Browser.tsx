@@ -1,7 +1,11 @@
 import { FunctionComponent } from "react"
 import styles from "../styles/Browser.module.css"
 
-const Browser: FunctionComponent = ({ children }) => <div className={styles.browser}>
+type BrowserProps = {
+    className?: string
+}
+
+const Browser: FunctionComponent<BrowserProps> = ({ className = "", children }) => <div className={`${styles.browser} ${className}`}>
     <div className={styles.browserControls}>
         <span style={{ backgroundColor: "red" }} />
         <span style={{ backgroundColor: "orange" }} />
