@@ -16,6 +16,7 @@ const Home = () => <>
                     <Browser className={styles.browser}>2</Browser>
                     <Browser className={styles.browser}>3</Browser>
                 </Swiper>
+                <img className={styles.label} src="ft-projects.png" draggable={false}/>
             </div>
         </Section>
     </HeroSection>
