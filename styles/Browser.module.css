@@ -1,7 +1,7 @@
 .browser {
-    border: solid 2px #ccc;
     border-radius: 1rem;
     background: #e8e8e8;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
     display: flex;
     flex-direction: column;
 }
