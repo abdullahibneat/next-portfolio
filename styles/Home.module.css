@@ -12,42 +12,49 @@
     overflow-x: hidden;
 }
 
-.hero, .content {
+.hero, .heroContent {
     display: flex;
     align-items: center;
 }
 
-.content {
+.heroContent {
     flex-direction: column;
+    padding: calc(6rem + 7px) 0; /* Padding same as navbar space */
 }
 
 .heroText {
     font-size: 2.5rem;
     font-weight: 700;
-    padding-bottom: 2rem;
+    padding-bottom: 5rem;
     text-align: center;
 }
 
-.browsers, .browser {
-    height: 75vw;
+.content {
+    position: relative;
     width: 75vw;
-}
-
-.browser {
     height: 50vw;
 }
 
-@media only screen and (min-width: 600px) {
+.swiper, .browser {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper {
+    padding-bottom: 2rem;
+}
+
+@media only screen and (min-width: 800px) {
     .hero {
         background-size: 70% 70%;
     }
 
-    .content {
+    .heroContent {
         flex-direction: row;
     }
 
-    .content > div {
-        width: 50%;
+    .heroContent > div {
+        flex: 1;
     }
 
     .heroText {
@@ -56,13 +63,12 @@
         padding-right: 2rem;
     }
 
-    .browsers, .browser {
-        width: 40vw;
-        height: auto;
+    .content {
+        height: 40vh;
     }
 
-    .browser {
-        height: 30vh;
+    .swiper {
+        margin: 0 auto;
         max-width: 400px;
     }
 }
