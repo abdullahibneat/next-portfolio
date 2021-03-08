@@ -1,17 +1,10 @@
 .swiper {
-    position: relative;
     perspective: 150vw;
-
-    /* Center Swipable cards */
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
 }
 
 .swipable {
-    /* Center items */
-    position: absolute;
-
     cursor: move;
     user-select: none;
     transition: all ease 0.5s;
@@ -19,6 +12,9 @@
 
     /* Prevent pull-to-refresh on mobile browsers */
     touch-action: none;
+
+    grid-row-start: 1;
+    grid-column-start: 1;
 }
 
 /* Remove transition while moving items */
