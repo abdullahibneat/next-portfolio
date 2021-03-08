@@ -16,6 +16,9 @@
     user-select: none;
     transition: all ease 0.5s;
     transform-origin: bottom;
+
+    /* Prevent pull-to-refresh on mobile browsers */
+    touch-action: none;
 }
 
 /* Remove transition while moving items */
