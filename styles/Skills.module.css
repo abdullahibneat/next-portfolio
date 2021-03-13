@@ -1,0 +1,27 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.skill {
+    padding: 2rem;
+    background: var(--primary-color);
+    border-radius: 1rem;
+    color: white;
+    font-size: 0.9rem;
+
+    display: flex;
+    flex-direction: column;
+
+    transform: scale(1);
+    transition: transform ease 0.25s;
+}
+
+.skill:hover {
+    transform: scale(1.025);
+}
+
+.skill h3 {
+    margin-bottom: 0.5rem;
+}
