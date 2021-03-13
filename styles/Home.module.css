@@ -29,7 +29,7 @@
     text-align: center;
 }
 
-.content {
+.heroProjects {
     position: relative;
     width: 75vw;
     height: 50vw;
@@ -51,6 +51,29 @@
     padding-bottom: 2rem;
 }
 
+/* SKILLS SECTION */
+
+.skilsSection {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.skilsSection > * {
+    flex: 1;
+}
+
+.skillsContent {
+    margin-bottom: 3rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.skillsContent h1 {
+    margin-bottom: 1rem;
+}
+
 @media only screen and (min-width: 800px) {
     .hero {
         background-size: 70% 70%;
@@ -70,12 +93,22 @@
         padding-right: 2rem;
     }
 
-    .content {
+    .heroProjects {
         height: 40vh;
     }
 
     .swiper {
         margin: 0 auto;
         max-width: 400px;
+    }
+
+    /* SKILLS SECTION */
+    .skilsSection {
+        flex-direction: row;
+    }
+
+    .skillsContent {
+        margin-bottom: 0;
+        margin-left: 3rem;
     }
 }
