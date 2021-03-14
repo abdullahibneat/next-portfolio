@@ -15,6 +15,10 @@
 
     grid-row-start: 1;
     grid-column-start: 1;
+
+    z-index: var(--zIndex);
+    opacity: var(--opacity);
+    transform: rotateZ(var(--rotateZ)) rotateY(var(--rotateY)) translate3d(var(--translateX), var(--translateY), var(--translateZ));
 }
 
 /* Remove transition while moving items */

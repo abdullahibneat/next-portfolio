@@ -1,5 +1,4 @@
-import React, { FunctionComponent, useState, TouchEvent } from "react"
-import CSS from "csstype"
+import React, { FunctionComponent, useState, TouchEvent, CSSProperties } from "react"
 import styles from "../styles/Swiper.module.css"
 
 type SwipableProps = {
@@ -28,13 +27,16 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, zDistance, index
     const opacityY = 100 - Math.abs((mouseState.current.y - mouseState.down.y) / 4)
     const opacity = Math.min(opacityX, opacityY)
 
-    // Move and rotate item whilst being dragged
-    const style: CSS.Properties = {
-        zIndex: -index,
-        transform: `translate(${(mouseState.current.x - mouseState.down.x) / 2}px, ${(mouseState.current.y - mouseState.down.y) / 2}px)
-            rotateZ(${(mouseState.current.x - mouseState.down.x) / 25}deg) rotateY(-20deg) translateZ(${-index * zDistance}px)`,
-        opacity: `${opacity}%`
-    }
+    // Update CSS variables to move and rotate item whilst being dragged
+    const style = {
+        "--zIndex": -index,
+        "--translateX": (mouseState.current.x - mouseState.down.x) / 2 + "px",
+        "--translateY": (mouseState.current.y - mouseState.down.y) / 2 + "px",
+        "--rotateZ": (mouseState.current.x - mouseState.down.x) / 25 + "deg",
+        "--rotateY": -20 + "deg",
+        "--translateZ": -index * zDistance + "px",
+        "--opacity": opacity + "%"
+    } as CSSProperties
 
     // MOUSE HANDLERS
     // Start tracking component's position
