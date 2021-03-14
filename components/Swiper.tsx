@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState, TouchEvent, CSSProperties } from "r
 import styles from "../styles/Swiper.module.css"
 
 type SwipableProps = {
+    shake?: boolean,
     zDistance: number,
     index: number,
     onSwipe?: (index: number) => void
@@ -13,7 +14,7 @@ type MouseEvent = {
 }
 
 // Swipable component used as a wrapper around content
-const Swipable: FunctionComponent<SwipableProps> = ({ children, zDistance, index, onSwipe = () => {} }) => {
+const Swipable: FunctionComponent<SwipableProps> = ({ children, shake = false, zDistance, index, onSwipe = () => {} }) => {
     // Keep track of mouse position
     const initialState = {
         down: { x: 0, y: 0 },
@@ -80,17 +81,21 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, zDistance, index
     // This is necessary for the component to follow the mouse precisely, otherwise there is a delay.
     const moved = mouseState.move && mouseState.down !== mouseState.current
 
-    return <div style={style} className={`${styles.swipable} ${moved? styles.moved : ""}`} {...mouseProps}>
+    return <div style={style} className={`${styles.swipable} ${moved? styles.moved : ""} ${shake? styles.shake : ""}`} {...mouseProps}>
         {children}
     </div>
 }
 
 type SwiperProps = {
     className?: string,
-    zDistance?: number
+    zDistance?: number,
+    shakeFirst?: boolean
 }
 
-const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "", zDistance = 50 }) => {
+const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "", zDistance = 50, shakeFirst = false }) => {
+    // Control first card animation
+    const [shake, setShake] = useState(shakeFirst)
+
     // Convert children elements to an array
     const [cards] = useState(React.Children.toArray(children))
     // Control the z-index position of each card
@@ -103,8 +108,14 @@ const Swiper: FunctionComponent<SwiperProps> = ({ children, className = "", zDis
         setCardPositions(cardPositions.map(i => i === 0? cardPositions.length - 1 : i - 1))
     }
 
-    return <div className={`${styles.swiper} ${className}`}>
-        {cards.map((content, i) => <Swipable zDistance={zDistance} index={cardPositions[i]} key={i} onSwipe={handleSwipe}>
+    // Remove shake animation on first mouse interaction
+    const mouseProps = {
+        onMouseDown: () => setShake(false),
+        onTouchStart: () => setShake(false)
+    }
+
+    return <div className={`${styles.swiper} ${className}`} {...mouseProps}>
+        {cards.map((content, i) => <Swipable shake={shake && i == 0} zDistance={zDistance} index={cardPositions[i]} key={i} onSwipe={handleSwipe}>
             {content}
         </Swipable>)}
     </div>

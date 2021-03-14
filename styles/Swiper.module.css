@@ -25,3 +25,21 @@
 .moved {
     transition: none;
 }
+
+@keyframes shake {
+    0%, 25%, 100% { transform: rotateZ(var(--rotateZ)) rotateY(var(--rotateY)) translate3d(var(--translateX), var(--translateY), var(--translateZ)); }
+    8% { transform: rotateZ(var(--rotateZ)) rotateY(var(--rotateY)) translate3d(var(--translateX), -25px, var(--translateZ)); }
+    10%, 15% { transform: rotateZ(-3deg) rotateY(var(--rotateY)) translate3d(var(--translateX), -25px, var(--translateZ)); }
+    13%, 18% { transform: rotateZ(3deg) rotateY(var(--rotateY)) translate3d(var(--translateX), -25px, var(--translateZ)); }
+}
+/* The above animation embeds a delay of about 7 seconds. The original animation is listed below: */
+/* @keyframes shake {
+    0%, 100% { transform: rotateZ(0) rotateY(var(--rotateY)) translate3d(0, 0, var(--translateZ)); }
+    30% { transform: rotateZ(0) rotateY(var(--rotateY)) translate3d(0, -25px, var(--translateZ)); }
+    40%, 60% { transform: rotateZ(-5deg) rotateY(var(--rotateY)) translate3d(0, -25px, var(--translateZ)); }
+    50%, 70% { transform: rotateZ(5deg) rotateY(var(--rotateY)) translate3d(0, -25px, var(--translateZ)); }
+} */
+
+.shake {
+    animation: shake 10s infinite;
+}

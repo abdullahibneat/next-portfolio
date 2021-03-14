@@ -19,7 +19,7 @@ const Home = () => <>
                 Consectetur adipiscing elit. Mauris in est scelerisque, scelerisque risus vel, tincidunt dolor.
             </div>
             <div className={styles.heroProjects}>
-                <Swiper zDistance={150} className={styles.swiper}>
+                <Swiper shakeFirst zDistance={150} className={styles.swiper}>
                     <Browser className={styles.browser}>1</Browser>
                     <Browser className={styles.browser}>2</Browser>
                     <Browser className={styles.browser}>3</Browser>
