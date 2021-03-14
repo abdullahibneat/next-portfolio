@@ -12,8 +12,8 @@ type SkillsProps = {
 }
 
 const Skills: FunctionComponent<SkillsProps> = ({ skills, className = "" }) => <div className={`${styles.container} ${className}`}>
-    {skills.map(s =>
-        <div className={styles.skill}>
+    {skills.map((s, i) =>
+        <div key={i} className={styles.skill}>
             <h3>{s.name}</h3>
             <p>{s.description}</p>
         </div>
