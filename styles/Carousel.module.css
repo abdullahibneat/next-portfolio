@@ -1,0 +1,14 @@
+.carousel {
+    /* Force slides to appear all in one line */
+    white-space: nowrap;
+
+    /* Show transition while moving carousel */
+    transition: transform 0.75s ease-out;
+}
+
+.slide {
+    display: inline-block;
+    width: 80%;
+    margin: 0 5%;
+    user-select: none;
+}
