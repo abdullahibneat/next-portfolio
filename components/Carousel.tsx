@@ -1,4 +1,4 @@
-import React, { CSSProperties, FunctionComponent, MouseEvent, useState } from "react"
+import React, { CSSProperties, FunctionComponent, MouseEvent, useRef, useState } from "react"
 import styles from "../styles/Carousel.module.css"
 
 const CarouselSlide: FunctionComponent = ({ children }) => <div className={styles.slide}>
@@ -6,6 +6,8 @@ const CarouselSlide: FunctionComponent = ({ children }) => <div className={style
 </div>
 
 const Carousel: FunctionComponent = ({ children }) => {
+    const carousel = useRef<HTMLDivElement>()
+
     const initialMouse = {
         down: 0,
         move: false
@@ -25,9 +27,18 @@ const Carousel: FunctionComponent = ({ children }) => {
     }
 
     const onMouseMove = ({ pageX }: MouseEvent) => {
-        if(mouse.move)
+        // Check if scrolling outside of boundaries
+        const current = pageX - mouse.down
+        const currDX = dx.prev + current
+        
+        // Left boundary: currDX < 0
+        // Right boundary:  scrollWidth returns the width of carousel (including overflow),
+        //                  but appears to also include the screen witdh (offsetWidth):
+        //                  -carousel.current.scrollWidth + carousel.current.offsetWidth
+        // Update DX only if mouse is moving AND user is still within boundaries
+        if(mouse.move && currDX < 0 && currDX > -carousel.current.scrollWidth + carousel.current.offsetWidth)
             // Update the current dx
-            setDX({ ...dx, current: pageX - mouse.down })
+            setDX({ ...dx, current })
     }
 
     const onMouseUp = () => {
@@ -37,7 +48,7 @@ const Carousel: FunctionComponent = ({ children }) => {
     }
 
     return <div style={{ overflow: "hidden" }} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}>
-        <div style={carouselStyle} className={styles.carousel}>
+        <div ref={carousel} style={carouselStyle} className={styles.carousel}>
             {React.Children.map(children, (c, i) => <CarouselSlide key={i}>{c}</CarouselSlide>)}
         </div>
     </div>
