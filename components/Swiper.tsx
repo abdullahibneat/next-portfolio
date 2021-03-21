@@ -1,5 +1,6 @@
 import React, { FunctionComponent, useState, TouchEvent, CSSProperties } from "react"
 import styles from "../styles/Swiper.module.css"
+import { getTouchXY } from "../utils"
 
 type SwipableProps = {
     shake?: boolean,
@@ -57,14 +58,6 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, shake = false, z
     const onMouseUp = () => {
         if(opacity < 76) onSwipe(index)
         setMouseState(initialState)
-    }
-
-    // Helper function to get pageX and pageY from touch devices
-    const getTouchXY = (e: TouchEvent) => {
-        return {
-            pageX: e.targetTouches[0].pageX,
-            pageY: e.targetTouches[0].pageY
-        }
     }
 
     const onTouchStart = (e: TouchEvent) => onMouseDown(getTouchXY(e))
