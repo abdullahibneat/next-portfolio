@@ -12,3 +12,12 @@
     margin: 0 5%;
     user-select: none;
 }
+
+/* Increase margins for first and last slides */
+.slide:first-of-type {
+    margin-left: 10%;
+}
+
+.slide:last-of-type {
+    margin-right: 10%;
+}
