@@ -1,5 +1,11 @@
-import React, { CSSProperties, FunctionComponent, MouseEvent, useRef, useState } from "react"
+import React, { CSSProperties, FunctionComponent, TouchEvent, useRef, useState } from "react"
 import styles from "../styles/Carousel.module.css"
+import { getTouchXY } from "../utils"
+
+type MouseEvent = {
+    pageX: number,
+    pageY: number
+}
 
 const CarouselSlide: FunctionComponent = ({ children }) => <div className={styles.slide}>
     {children}
@@ -47,7 +53,16 @@ const Carousel: FunctionComponent = ({ children }) => {
         setDX({ prev: dx.prev + dx.current, current: 0 })
     }
 
-    return <div style={{ overflow: "hidden" }} onMouseDown={onMouseDown} onMouseMove={onMouseMove} onMouseUp={onMouseUp}>
+    const onTouchStart = (e: TouchEvent) => onMouseDown(getTouchXY(e))
+    const onTouchMove = (e: TouchEvent) => onMouseMove(getTouchXY(e))
+
+    const mouseProps = {
+        onMouseDown, onTouchStart,
+        onMouseMove, onTouchMove,
+        onMouseUp, onMouseLeave: onMouseUp, onTouchEnd: onMouseUp, onTouchCancel: onMouseUp
+    }
+
+    return <div style={{ overflow: "hidden" }} {...mouseProps}>
         <div ref={carousel} style={carouselStyle} className={styles.carousel}>
             {React.Children.map(children, (c, i) => <CarouselSlide key={i}>{c}</CarouselSlide>)}
         </div>
