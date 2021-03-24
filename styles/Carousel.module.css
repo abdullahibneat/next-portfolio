@@ -11,6 +11,8 @@
     width: 80%;
     margin: 0 5%;
     user-select: none;
+    transition: transform 0.5s linear;
+    transform: scale(0.9);
 }
 
 /* Increase margins for first and last slides */
@@ -20,4 +22,8 @@
 
 .slide:last-of-type {
     margin-right: 10%;
+}
+
+.slide.current {
+    transform: scale(1);
 }

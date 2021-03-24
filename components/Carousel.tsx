@@ -1,4 +1,4 @@
-import React, { CSSProperties, FunctionComponent, TouchEvent, useRef, useState } from "react"
+import React, { CSSProperties, FunctionComponent, TouchEvent, useEffect, useRef, useState } from "react"
 import styles from "../styles/Carousel.module.css"
 import { getTouchXY } from "../utils"
 
@@ -7,9 +7,23 @@ type MouseEvent = {
     pageY: number
 }
 
-const CarouselSlide: FunctionComponent = ({ children }) => <div className={styles.slide}>
-    {children}
-</div>
+const CarouselSlide: FunctionComponent = ({ children }) => {
+    // Use IntersectionObserver to check if the slide is in view
+    const [isCurrent, setCurrent] = useState(false)
+    const ref = useRef()
+    
+    useEffect(() => {
+        const io = new IntersectionObserver(([entry]) => setCurrent(entry.intersectionRatio >= 0.75), { threshold: [0, 0.25, 0.5, 0.75, 1] })
+        io.observe(ref.current)
+
+        // Need to disconnect IntersectionObserver once slide is unmounted.
+        return () => { io.disconnect }
+    }, [])
+
+    return <div ref={ref} className={`${styles.slide} ${isCurrent? styles.current : ""}`}>
+        {children}
+    </div>
+}
 
 const Carousel: FunctionComponent = ({ children }) => {
     const carousel = useRef<HTMLDivElement>()
