@@ -4,11 +4,13 @@
 
     /* Show transition while moving carousel */
     transition: transform 0.75s ease-out;
+    display: flex;
+    align-items: center;
 }
 
 .slide {
+    flex: 0 0 80%;
     display: inline-block;
-    width: 80%;
     margin: 0 1%;
     user-select: none;
     transition: transform 0.5s linear;
