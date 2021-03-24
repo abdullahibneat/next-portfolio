@@ -9,7 +9,7 @@
 .slide {
     display: inline-block;
     width: 80%;
-    margin: 0 5%;
+    margin: 0 1%;
     user-select: none;
     transition: transform 0.5s linear;
     transform: scale(0.9);
