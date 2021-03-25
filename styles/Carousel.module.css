@@ -11,19 +11,19 @@
 .slide {
     flex: 0 0 80%;
     display: inline-block;
-    margin: 0 1%;
+    padding: 0 1%;
     user-select: none;
     transition: transform 0.5s linear;
     transform: scale(0.9);
 }
 
-/* Increase margins for first and last slides */
+/* Increase paddings for first and last slides */
 .slide:first-of-type {
-    margin-left: 10%;
+    padding-left: 12.5%;
 }
 
 .slide:last-of-type {
-    margin-right: 10%;
+    padding-right: 12.5%;
 }
 
 .slide.current {
