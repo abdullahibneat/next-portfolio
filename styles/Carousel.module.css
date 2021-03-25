@@ -9,7 +9,7 @@
 }
 
 .slide {
-    flex: 0 0 80%;
+    flex: 0 0 90%;
     display: inline-block;
     padding: 0 1%;
     user-select: none;
@@ -28,4 +28,10 @@
 
 .slide.current {
     transform: scale(1);
+}
+
+@media only screen and (min-width: 800px) {
+    .slide {
+        flex: 0 0 80%;
+    }
 }
