@@ -2,6 +2,7 @@ import "../styles/global.css"
 import { AppProps } from "next/app"
 import Head from "next/head"
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 const App = ({ Component, pageProps }: AppProps) => <>
     <Head>
@@ -11,6 +12,7 @@ const App = ({ Component, pageProps }: AppProps) => <>
     </Head>
     <Navbar />
     <Component {...pageProps}></Component>
+    <Footer />
 </>
 
 export default App

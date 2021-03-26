@@ -1,0 +1,17 @@
+.footer {
+    background: var(--primary-color);
+    font-size: 0.8rem;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    color: black;
+}
