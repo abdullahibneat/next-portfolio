@@ -1,5 +1,7 @@
 import Browser from "../components/Browser"
+import Carousel from "../components/Carousel"
 import HeroSection from "../components/HeroSection"
+import QuoteBox, { Quote } from "../components/QuoteBox"
 import Section from "../components/Section"
 import Skills, { Skill } from "../components/Skills"
 import Swiper from "../components/Swiper"
@@ -10,6 +12,12 @@ const skills: Skill[] = [
     { name: "Java and Kotlin Development", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nobis?" },
     { name: "Databases", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nobis?" },
     { name: "Git", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nobis?" }
+]
+
+const testimonials: Quote[] = [
+    { author: "Adam Smith", text: "Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Corrupti mollitia voluptatibus <strong>aliquam</strong> maiores, nesciunt dolorum!" },
+    { author: "John Smith", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
+    { author: "John Doe", text: "Lorem ipsum dolor sit amet consectetur <strong>adipisicing</strong> elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
 ]
 
 const Home = () => <>
@@ -35,6 +43,9 @@ const Home = () => <>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos a! Sed nisi laborum porro asperiores veniam earum recusandae nesciunt incidunt vitae aliquid minus omnis dolorum, iste beatae voluptas dolor!</p>
         </div>
     </Section>
+    <Carousel>
+        {testimonials.map((q, i) => <QuoteBox key={i} {...q} />)}
+    </Carousel>
 </>
 
 export default Home
