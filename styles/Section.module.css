@@ -2,5 +2,11 @@
     width: 80%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 10rem 0;
+    padding: 5rem 0;
+}
+
+@media only screen and (min-width: 600px) {
+    .section {
+        padding: 10rem 0;
+    }
 }
