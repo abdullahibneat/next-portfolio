@@ -1,0 +1,44 @@
+.container {
+    padding: 2rem 0;
+    margin: 0 2rem;
+    text-align: center;
+    max-width: 1200px;
+}
+
+.author {
+    display: block;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+.quote {
+    position: relative;
+    font-size: 2rem;
+    white-space: pre-wrap;
+}
+
+.quote strong {
+    color: var(--primary-color);
+}
+
+.quote:before, .quote:after {
+    position: absolute;
+    color: var(--primary-color);
+    opacity: 0.3;
+	font-size: 8rem;
+    font-weight: 800;
+	width: 4rem;
+	height: 4rem;
+}
+
+.quote:before {
+	content: '“';
+	left: -3rem;
+	top: -2rem;
+}
+
+.quote:after {
+	content: '”';
+	right: -3rem;
+	bottom: 0;
+}
