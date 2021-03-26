@@ -43,7 +43,7 @@ const Home = () => <>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos a! Sed nisi laborum porro asperiores veniam earum recusandae nesciunt incidunt vitae aliquid minus omnis dolorum, iste beatae voluptas dolor!</p>
         </div>
     </Section>
-    <Carousel>
+    <Carousel style={{ paddingBottom: "5rem" }}>
         {testimonials.map((q, i) => <QuoteBox key={i} {...q} />)}
     </Carousel>
 </>
