@@ -7,7 +7,12 @@ type MouseEvent = {
     pageY: number
 }
 
-const CarouselSlide: FunctionComponent = ({ children }) => {
+type SlideProps = {
+    index: number,
+    onCurrent?: (index: number) => void
+}
+
+const CarouselSlide: FunctionComponent<SlideProps> = ({ index, onCurrent = () => {}, children }) => {
     // Use IntersectionObserver to check if the slide is in view
     const [isCurrent, setCurrent] = useState(false)
     const ref = useRef()
@@ -20,6 +25,11 @@ const CarouselSlide: FunctionComponent = ({ children }) => {
         return () => { io.disconnect }
     }, [])
 
+    // Update carousel's current index if this slide is in view
+    useEffect(() => {
+        if(isCurrent) onCurrent(index)
+    }, [isCurrent])
+
     return <div ref={ref} className={`${styles.slide} ${isCurrent? styles.current : ""}`}>
         {children}
     </div>
@@ -27,11 +37,15 @@ const CarouselSlide: FunctionComponent = ({ children }) => {
 
 type CarouselProps = {
     className?: string,
-    style?: CSSProperties
+    style?: CSSProperties,
+    dots?: boolean
 }
 
-const Carousel: FunctionComponent<CarouselProps> = ({ className = "", style = {}, children }) => {
+const Carousel: FunctionComponent<CarouselProps> = ({ dots = true, className = "", style = {}, children }) => {
     const carousel = useRef<HTMLDivElement>()
+
+    // Keep track of current slide
+    const [current, setCurrent] = useState(0)
 
     const initialMouse = {
         down: 0,
@@ -83,8 +97,12 @@ const Carousel: FunctionComponent<CarouselProps> = ({ className = "", style = {}
 
     return <div className={className} style={{ ...style, overflow: "hidden" }} {...mouseProps}>
         <div ref={carousel} style={carouselStyle} className={styles.carousel}>
-            {React.Children.map(children, (c, i) => <CarouselSlide key={i}>{c}</CarouselSlide>)}
+            {React.Children.map(children, (c, i) => <CarouselSlide key={i} index={i} onCurrent={setCurrent} >{c}</CarouselSlide>)}
         </div>
+        {/* Display dots for each slide */}
+        {dots && <div className={styles.dots}>
+            {React.Children.map(children, (_, i) => <div key={i} className={`${styles.dot} ${current === i? styles.current : ""}`}></div>)}
+        </div>}
     </div>
 }
 

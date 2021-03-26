@@ -34,3 +34,27 @@
     transform: scale(1);
     opacity: 1;
 }
+
+.dots {
+    /* display: flex; */
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background: lightgray;
+    transition: all 0.5s ease-out;
+}
+
+.dot.current {
+    width: 25px;
+    background: #333;
+}
+
+.dot:not(:last-of-type) {
+    margin-right: 8px;
+}
