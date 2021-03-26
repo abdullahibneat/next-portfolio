@@ -25,7 +25,12 @@ const CarouselSlide: FunctionComponent = ({ children }) => {
     </div>
 }
 
-const Carousel: FunctionComponent = ({ children }) => {
+type CarouselProps = {
+    className?: string,
+    style?: CSSProperties
+}
+
+const Carousel: FunctionComponent<CarouselProps> = ({ className = "", style = {}, children }) => {
     const carousel = useRef<HTMLDivElement>()
 
     const initialMouse = {
@@ -76,7 +81,7 @@ const Carousel: FunctionComponent = ({ children }) => {
         onMouseUp, onMouseLeave: onMouseUp, onTouchEnd: onMouseUp, onTouchCancel: onMouseUp
     }
 
-    return <div style={{ overflow: "hidden" }} {...mouseProps}>
+    return <div className={className} style={{ ...style, overflow: "hidden" }} {...mouseProps}>
         <div ref={carousel} style={carouselStyle} className={styles.carousel}>
             {React.Children.map(children, (c, i) => <CarouselSlide key={i}>{c}</CarouselSlide>)}
         </div>
