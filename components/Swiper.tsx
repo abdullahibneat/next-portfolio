@@ -37,7 +37,8 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, shake = false, z
         "--rotateZ": (mouseState.current.x - mouseState.down.x) / 25 + "deg",
         "--rotateY": -20 + "deg",
         "--translateZ": -index * zDistance + "px",
-        "--opacity": opacity + "%"
+        "--opacity": opacity + "%",
+        cursor: index === 0? "move" : "initial"
     } as CSSProperties
 
     // MOUSE HANDLERS
@@ -63,12 +64,12 @@ const Swipable: FunctionComponent<SwipableProps> = ({ children, shake = false, z
     const onTouchStart = (e: TouchEvent) => onMouseDown(getTouchXY(e))
     const onTouchMove = (e: TouchEvent) => onMouseMove(getTouchXY(e))
 
-    const mouseProps = {
+    const mouseProps = index === 0? {
         onMouseDown, onTouchStart,
         onMouseMove, onTouchMove,
         onMouseUp, onTouchEnd: onMouseUp, onTouchCancel: onMouseUp,
         onMouseLeave: onMouseUp
-    }
+    } : {}
 
     // Remove CSS transition by adding ".moved" class whilst the component is moving
     // This is necessary for the component to follow the mouse precisely, otherwise there is a delay.
