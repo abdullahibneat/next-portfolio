@@ -60,3 +60,10 @@
 .dot:not(:last-of-type) {
     margin-right: 8px;
 }
+
+@media only screen and (max-width: 600px) {
+    .wrapper {
+        /* Disable vertical mobile scroll while interacting with carousel */
+        touch-action: none;
+    }
+}
