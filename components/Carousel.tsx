@@ -95,7 +95,7 @@ const Carousel: FunctionComponent<CarouselProps> = ({ dots = true, className = "
         onMouseUp, onMouseLeave: onMouseUp, onTouchEnd: onMouseUp, onTouchCancel: onMouseUp
     }
 
-    return <div className={className} style={{ ...style, overflow: "hidden" }} {...mouseProps}>
+    return <div className={`${styles.wrapper} ${className}`} style={style} {...mouseProps}>
         <div ref={carousel} style={carouselStyle} className={styles.carousel}>
             {React.Children.map(children, (c, i) => <CarouselSlide key={i} index={i} onCurrent={setCurrent} >{c}</CarouselSlide>)}
         </div>

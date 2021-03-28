@@ -1,3 +1,14 @@
+.wrapper {
+    overflow: hidden;
+    /* Space at beginning and end of carousel */
+    /* Width is the greater of:
+        - 10vw (slide = 80vw, (100vw - 80vw) / 2 = 10vw)
+        - whatever space is left if slides are taking the full max-width 1200px
+          (i.e. (100vw - 1200px) / 2)
+    */
+    padding: 0 max(10vw, calc((100vw - 1200px) / 2));
+}
+
 .carousel {
     /* Force slides to appear all in one line */
     white-space: nowrap;
@@ -9,7 +20,8 @@
 }
 
 .slide {
-    max-width: 90%;
+    width: 80vw;
+    max-width: 1200px;
     flex-grow: 0;
     flex-shrink: 0;
     display: flex;
@@ -21,22 +33,12 @@
     opacity: 0.25;
 }
 
-/* Increase paddings for first and last slides */
-.slide:first-of-type {
-    padding-left: 20%;
-}
-
-.slide:last-of-type {
-    padding-right: 20%;
-}
-
 .slide.current {
     transform: scale(1);
     opacity: 1;
 }
 
 .dots {
-    /* display: flex; */
     margin: 0 auto;
     width: fit-content;
 }
