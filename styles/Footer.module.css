@@ -12,6 +12,27 @@
     justify-content: space-between;
 }
 
-.link {
-    color: black;
+.contact {
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 3rem;
+}
+
+.contact p, .contact button {
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+@media only screen and (min-width: 600px) {
+    .contact {
+        text-align: initial;
+        /* Set overflow because of float in button */
+        overflow: hidden;
+    }
+
+    .contact button {
+        float: right;
+    }
 }
