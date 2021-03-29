@@ -1,5 +1,14 @@
 :root {
     --primary-color: #F4A261;
+    --text: black;
+    --background: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: white;
+        --background: black;
+    }
 }
 
 * {
@@ -10,6 +19,8 @@
 
 html, body {
     font-family: "Inter", sans-serif;
+    background: var(--background);
+    color: var(--text);
 }
 
 html, body, #__next {
@@ -26,8 +37,8 @@ button {
     padding: .5rem 1rem;
     border: none;
     border-radius: .75rem;
-    background: black;
-    color: white;
+    background: var(--text);
+    color: var(--background);
     transition: transform 250ms ease;
     font-weight: bold;
 }

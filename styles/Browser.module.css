@@ -21,7 +21,6 @@
 
 .content {
     padding: 0.5rem;
-    background: white;
     border-radius: 0 0 1rem 1rem;
     /* Take all remaining height */
     flex: 1;

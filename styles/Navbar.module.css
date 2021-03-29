@@ -16,7 +16,7 @@
 }
 
 .links a {
-    color: black;
+    color: var(--text);
 }
 
 /* Only underline link if user is in that page */
