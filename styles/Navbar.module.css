@@ -17,11 +17,33 @@
 
 .links a {
     color: var(--text);
+    text-decoration: none;
+    position: relative;
+    padding: 0 .1rem;
+}
+
+/* Link underline */
+.links a:after {
+    content: "";
+    height: .25rem;
+    background: var(--primary-color);
+    position: absolute;
+    bottom: -.25rem;
+    left: 0; right: 0;
+    border-radius: .25rem;
+    transform: scaleX(0);
+    transition: transform 0.5s;
+    transform-origin: right;
+}
+
+.links a:hover:after {
+    transform: scaleX(1);
+    transform-origin: left;
 }
 
 /* Only underline link if user is in that page */
-.links a:not(.currentPage) {
-    text-decoration: none;
+.links .currentPage:after {
+    transform: scaleX(1);
 }
 
 /* Mobile */
@@ -29,6 +51,10 @@
     .links a {
         font-size: 2rem;
         margin-bottom: 1rem;
+    }
+
+    .links a:after {
+        background: var(--text);
     }
     
     /* Hide links if not open */
