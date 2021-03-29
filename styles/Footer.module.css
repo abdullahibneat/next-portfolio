@@ -28,11 +28,15 @@
 @media only screen and (min-width: 600px) {
     .contact {
         text-align: initial;
-        /* Set overflow because of float in button */
-        overflow: hidden;
+        max-width: 900px;
+    }
+    .contact div {
+        display: flex;
+        align-items: flex-end;
     }
 
-    .contact button {
-        float: right;
+    .contact p {
+        flex: 2;
+        margin-right: 1rem;
     }
 }
