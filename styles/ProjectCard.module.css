@@ -1,3 +1,8 @@
+.wrapper {
+    --background: rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
 .card {
     text-decoration: none;
     height: 300px;
@@ -14,11 +19,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    position: relative;
 }
 
 .content h2 span {
-    --background: rgba(0, 0, 0, 0.5);
     padding: 0.25rem;
     color: white;
     background: var(--background);
@@ -36,8 +39,15 @@
 
 .links a {
     display: block;
-    width: 30px;
-    height: 30px;
+    padding: 0.5rem;
     border-radius: 50%;
     margin-right: 0.5rem;
+    background: var(--background);
+    color: var(--text);
+}
+
+.links svg {
+    display: block;
+    width: 25px;
+    height: 25px;
 }
