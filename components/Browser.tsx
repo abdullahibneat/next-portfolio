@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import styles from "../styles/Browser.module.css"
+import styles from "@styles/Browser.module.css"
 
 type BrowserProps = {
     className?: string

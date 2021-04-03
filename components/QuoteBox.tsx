@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import styles from "../styles/QuoteBox.module.css"
+import styles from "@styles/QuoteBox.module.css"
 
 export type Quote = {
     text: string,

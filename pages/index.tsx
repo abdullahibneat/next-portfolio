@@ -1,11 +1,11 @@
-import Browser from "../components/Browser"
-import Carousel from "../components/Carousel"
-import HeroSection from "../components/HeroSection"
-import QuoteBox, { Quote } from "../components/QuoteBox"
-import Section from "../components/Section"
-import Skills, { Skill } from "../components/Skills"
-import Swiper from "../components/Swiper"
-import styles from "../styles/Home.module.css"
+import Browser from "@components/Browser"
+import Carousel from "@components/Carousel"
+import HeroSection from "@components/HeroSection"
+import QuoteBox, { Quote } from "@components/QuoteBox"
+import Section from "@components/Section"
+import Skills, { Skill } from "@components/Skills"
+import Swiper from "@components/Swiper"
+import styles from "@styles/Home.module.css"
 
 const skills: Skill[] = [
     { name: "Full Stack Development", description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, nobis?" },

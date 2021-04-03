@@ -1,6 +1,6 @@
-import Link from "next/link"
 import { FunctionComponent } from "react"
-import styles from "../styles/ProjectCard.module.css"
+import Link from "next/link"
+import styles from "@styles/ProjectCard.module.css"
 
 export type ProjectCardProps = {
     title: string,

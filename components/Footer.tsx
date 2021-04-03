@@ -1,7 +1,7 @@
 import { FunctionComponent } from "react"
-import Section from "./Section"
+import Section from "@components/Section"
 import Link from "next/link"
-import styles from "../styles/Footer.module.css"
+import styles from "@styles/Footer.module.css"
 
 const Footer: FunctionComponent = () => <>
     <Section className={styles.contact}>

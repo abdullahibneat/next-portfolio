@@ -1,6 +1,6 @@
-import Section from "../components/Section"
-import ProjectCard from "../components/ProjectCard"
-import styles from "../styles/Projects.module.css"
+import Section from "@components/Section"
+import ProjectCard from "@components/ProjectCard"
+import styles from "@styles/Projects.module.css"
 
 const projects = [
     { title: "Lorem ipsum dolor sit amet consectetur adipisicing elit", url: "#" },

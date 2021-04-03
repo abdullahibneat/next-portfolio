@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import styles from "../styles/Skills.module.css"
+import styles from "@styles/Skills.module.css"
 
 export type Skill = {
     name: string,

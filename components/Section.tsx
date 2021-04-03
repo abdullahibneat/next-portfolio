@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import styles from "../styles/Section.module.css"
+import styles from "@styles/Section.module.css"
 
 export type SectionProps = {
     className?: String

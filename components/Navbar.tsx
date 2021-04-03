@@ -1,8 +1,8 @@
-import styles from "../styles/Navbar.module.css"
-import Link from "next/link"
 import { useEffect, useState } from "react"
+import Link from "next/link"
 import { useRouter } from "next/router"
-import Section from "./Section"
+import Section from "@components/Section"
+import styles from "@styles/Navbar.module.css"
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)

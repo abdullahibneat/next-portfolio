@@ -1,4 +1,4 @@
-import Section from "../components/Section"
+import Section from "@components/Section"
 
 const Contact = () => <Section>
     <h1>Contact</h1>

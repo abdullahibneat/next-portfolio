@@ -1,6 +1,6 @@
 import React, { FunctionComponent, useState, TouchEvent, CSSProperties } from "react"
-import styles from "../styles/Swiper.module.css"
 import { getTouchXY } from "../utils"
+import styles from "@styles/Swiper.module.css"
 
 type SwipableProps = {
     shake?: boolean,
