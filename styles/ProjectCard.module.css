@@ -1,5 +1,4 @@
 .wrapper {
-    --background: rgba(0, 0, 0, 0.5);
     position: relative;
     color: white;
 }
@@ -7,10 +6,16 @@
 .card {
     text-decoration: none;
     height: 300px;
-    background: var(--primary-color);
-    background-size: cover;
+    background-color: var(--primary-color);
+    background-position: center;
+    background-size: 100%;
     display: grid;
     border-radius: 30px;
+    transition: background-size 0.5s;
+}
+
+.wrapper:hover .card {
+    background-size: 110%;
 }
 
 .content {
@@ -22,12 +27,18 @@
 }
 
 .content h2 span {
+    --background: rgba(0, 0, 0, 0.5);
     padding: 0.25rem;
-    background: var(--background);
+    background-color: var(--background);
     line-height: 1.75;
     /* Add spacing on left and right sides */
     box-shadow: 1rem 0 0 0 var(--background),
                 -1rem 0 0 0 var(--background);
+    transition: box-shadow 0.5s, background-color 0.5s;
+}
+
+.wrapper:hover .content h2 span {
+    --background: black;
 }
 
 .links {
@@ -37,11 +48,20 @@
 }
 
 .links a {
+    --background: rgba(0, 0, 0, 0.5);
+    --text: white;
+    color: var(--text);
     display: block;
     padding: 0.5rem;
     border-radius: 50%;
     margin-right: 0.5rem;
-    background: var(--background);
+    background-color: var(--background);
+    transition: color 0.5s, background-color 0.5s;
+}
+
+.links a:hover {
+    --background: white;
+    --text: black;
 }
 
 .links svg {
