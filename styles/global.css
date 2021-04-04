@@ -40,13 +40,14 @@ button {
     border-radius: .75rem;
     background: var(--primary-color);
     color: white;
-    transition: transform 250ms ease;
+    transition: all 250ms ease;
     font-weight: bold;
     box-shadow: var(--primary-color) 0 0 5px;
 }
 
 button:hover {
     transform: scale(1.05);
+    box-shadow: var(--primary-color) 0 0 15px;
 }
 
 button:active {
