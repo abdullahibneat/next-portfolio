@@ -1,5 +1,7 @@
 .wrapper {
-    overflow: hidden;
+    /* Disable vertical scrollbar */
+    overflow-y: hidden;
+
     /* Space at beginning and end of carousel */
     /* Width is the greater of:
         - 10vw (slide = 80vw, (100vw - 80vw) / 2 = 10vw)
@@ -7,6 +9,11 @@
           (i.e. (100vw - 1200px) / 2)
     */
     padding: 0 max(10vw, calc((100vw - 1200px) / 2));
+}
+
+/* Disable scrollbar on non-touch devices */
+.wrapper:not(.touch) {
+    overflow-x: hidden;
 }
 
 .carousel {
@@ -59,13 +66,6 @@
 
 .dot:not(:last-of-type) {
     margin-right: 8px;
-}
-
-@media only screen and (max-width: 600px) {
-    .wrapper {
-        /* Disable vertical mobile scroll while interacting with carousel */
-        touch-action: none;
-    }
 }
 
 @media (prefers-color-scheme: dark) {
