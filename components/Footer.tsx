@@ -9,7 +9,7 @@ const Footer: FunctionComponent = () => <>
         <div>
             <p>Do you have a project in mind? Or need help in your company? If so, feel free to contact me.</p>
             <div>
-                <Link href="#"><button>Let's talk →</button></Link>
+                <Link href="/contact"><button>Let's talk →</button></Link>
             </div>
         </div>
     </Section>
@@ -17,7 +17,7 @@ const Footer: FunctionComponent = () => <>
         <div className={styles.container}>
             <p>&copy; Abdullah Ibne Atiq</p>
             <div>
-                <Link href="#">GitHub</Link> <span>•</span> <Link href="#">Contact</Link>
+                <Link href="#">GitHub</Link> <span>•</span> <Link href="/contact">Contact</Link>
             </div>
         </div>
     </footer>
