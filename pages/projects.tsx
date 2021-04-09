@@ -1,15 +1,14 @@
 import Section from "@components/Section"
-import ProjectCard from "@components/ProjectCard"
+import ProjectCard, { ProjectCardProps } from "@components/ProjectCard"
+import sanityClient from "../sanityClient"
 import styles from "@styles/Projects.module.css"
+import { FunctionComponent } from "react"
 
-const projects = [
-    { title: "Lorem ipsum dolor sit amet consectetur adipisicing elit", url: "#" },
-    { title: "Lorem ipsum dolor sit amet consectetur adipisicing elit", url: "#", github: "https://github.com" },
-    { title: "Autem, quis natus perspiciatis vero facilis repellendus", url: "#", live: "https://abdu.io" },
-    { title: "Lorem ipsum dolor sit amet consectetur adipisicing elit", url: "#", github: "https://github.com", live: "https://abdu.io" },
-]
+type props = {
+    projects: ProjectCardProps[]
+}
 
-const Projects = () => <Section>
+const Projects: FunctionComponent<props> = ({ projects }) => <Section>
     <h1 className={styles.title}>Projects</h1>
     <div className={styles.grid}>
         {projects.map((p, i) =>
@@ -17,5 +16,20 @@ const Projects = () => <Section>
         )}
     </div>
 </Section>
+
+export const getStaticProps = async () => {
+    const projects = await sanityClient.fetch(`
+        *[_type == 'project'] {
+            title,
+            "url": "/projects/" + slug.current,
+            "featuredImage": featuredImage.asset->url,
+            github,
+            live
+        }
+    `)
+    return {
+        props: { projects }
+    }
+}
 
 export default Projects
