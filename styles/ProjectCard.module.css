@@ -1,6 +1,9 @@
 .wrapper {
     position: relative;
     color: white;
+    border-radius: 30px;
+    border: solid 3px rgba(0, 0, 0, 0.5);
+    transition: border-color 0.5s;
 }
 
 .card {
@@ -35,6 +38,10 @@
     box-shadow: 1rem 0 0 0 var(--background),
                 -1rem 0 0 0 var(--background);
     transition: box-shadow 0.5s, background-color 0.5s;
+}
+
+.wrapper:hover {
+    border-color: black;
 }
 
 .wrapper:hover .content h2 span {
