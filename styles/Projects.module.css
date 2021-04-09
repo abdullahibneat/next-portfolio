@@ -1,6 +1,6 @@
 h1.title {
     font-size: 2rem;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
     text-align: center;
 }
 
@@ -9,6 +9,28 @@ h1.title {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     grid-auto-rows: minmax(300px, 1fr);
     gap: 30px;
+}
+
+.categories {
+    padding: 0.5rem 0;
+    margin-bottom: 2.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.categories span {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border: solid 2px var(--primary-color);
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 250ms ease;
+}
+
+.categories span.current, .categories span:hover {
+    background-color: var(--primary-color);
+    color: white;
 }
 
 @media only screen and (min-width: 900px) {
