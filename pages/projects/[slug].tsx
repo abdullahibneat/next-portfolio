@@ -5,13 +5,15 @@ import { Project } from "types"
 import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
+import styles from "@styles/ProjectLayout.module.css"
 
 const ProjectLayout: FunctionComponent<Project> = project => {
     return <Section>
         <ProjectHeader {...project} />
         <BlockContent
+            className={styles.content}
             blocks={project.body}
-            imageOptions={{ w: 320, h: 240, fit: "max" }} // TODO: Update image sizes
+            imageOptions={{ w: 600, fit: "max" }} // 600px = 60ch, matching styles.content's max-width
             {...sanityClient.config()} />
     </Section>
 }
