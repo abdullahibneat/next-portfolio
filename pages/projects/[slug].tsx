@@ -4,12 +4,13 @@ import { FunctionComponent } from "react"
 import { Project } from "types"
 import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
+import ProjectHeader from "@components/ProjectHeader"
 
-const ProjectLayout: FunctionComponent<Project> = ({ title, body }) => {
+const ProjectLayout: FunctionComponent<Project> = project => {
     return <Section>
-        <h1>{title}</h1>
+        <ProjectHeader {...project} />
         <BlockContent
-            blocks={body}
+            blocks={project.body}
             imageOptions={{ w: 320, h: 240, fit: "max" }} // TODO: Update image sizes
             {...sanityClient.config()} />
     </Section>

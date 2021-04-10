@@ -1,0 +1,37 @@
+.container {
+    text-align: center;
+    margin: 0 auto 5rem;
+}
+
+.container h1 {
+    font-size: 2.5rem;
+}
+
+.container p {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.container img {
+    max-width: 90%;
+    margin-top: 2.5rem;
+}
+
+.container a:not(:last-of-type) {
+    margin-right: 1rem;
+}
+
+@media only screen and (min-width: 900px) {
+    .container {
+        max-width: 90%;
+        padding: 0;
+        text-align: initial;
+        display: flex;
+        align-items: center;
+    }
+
+    .container img {
+        max-width: 50%;
+        margin-top: 0;
+    }
+}
