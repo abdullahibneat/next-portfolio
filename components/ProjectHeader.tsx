@@ -15,8 +15,8 @@ const ProjectHeader: FunctionComponent<props> = ({ title, summary, live, github,
             <h1>{title}</h1>
             <p>{summary}</p>
             <div>
-                {live && <a href={live} target="__blank"><button>See source code →</button></a>}
-                {github && <a href={github} target="__blank"><button>See website →</button></a>}
+                {live && <a href={live} target="__blank"><button>See website →</button></a>}
+                {github && <a href={github} target="__blank"><button>See source code →</button></a>}
             </div>
         </div>
         {featuredImage && <img src={featuredImage} alt={title} />}
