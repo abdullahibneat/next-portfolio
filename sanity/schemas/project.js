@@ -49,10 +49,7 @@ export default {
         },
         {
             name: "summary",
-            type: "array",
-            of: [{
-                type: "block"
-            }],
+            type: "text",
             validation: Rule => Rule.required()
         },
         {
