@@ -40,7 +40,7 @@ const Projects: FunctionComponent<props> = ({ projects }) => {
 
 export const getStaticProps = async () => {
     const projects = await sanityClient.fetch(`
-        *[_type == "project"] {
+        *[_type == "project"] | order(_createdAt desc) {
             title,
             "slug": slug.current,
             "featuredImage": featuredImage.asset->url,
