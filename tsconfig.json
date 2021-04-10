@@ -20,7 +20,8 @@
         "baseUrl": ".",
         "paths": {
             "@components/*": ["components/*"],
-            "@styles/*": ["styles/*"]
+            "@styles/*": ["styles/*"],
+            "@sanityClient": ["sanityClient.js"]
         }
     },
     "include": [

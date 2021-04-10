@@ -1,6 +1,6 @@
 import Section from "@components/Section"
 import ProjectCard from "@components/ProjectCard"
-import sanityClient from "../sanityClient"
+import sanityClient from "@sanityClient"
 import styles from "@styles/Projects.module.css"
 import { FunctionComponent, useState } from "react"
 import { Project } from "types"
