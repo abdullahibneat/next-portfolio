@@ -9,7 +9,7 @@
 
 .container p {
     font-size: 1.5rem;
-    margin: 1rem 0;
+    margin: 1.5rem 0;
 }
 
 .container img {
@@ -33,5 +33,6 @@
     .container img {
         max-width: 50%;
         margin-top: 0;
+        padding-left: 2rem;
     }
 }
