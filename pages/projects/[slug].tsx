@@ -6,6 +6,16 @@ import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
+import QuoteBox from "@components/QuoteBox"
+
+const serializers = {
+    types: {
+        "quote": ({ node }) => {
+            const { quote, author, title } = node
+            return <QuoteBox className={styles.quote} text={quote} author={author} title={title} />
+        }
+    }
+}
 
 const ProjectLayout: FunctionComponent<Project> = project => {
     return <Section>
@@ -14,6 +24,7 @@ const ProjectLayout: FunctionComponent<Project> = project => {
             className={styles.content}
             blocks={project.body}
             imageOptions={{ w: 600, fit: "max" }} // 600px = 60ch, matching styles.content's max-width
+            serializers={serializers}
             {...sanityClient.config()} />
     </Section>
 }
