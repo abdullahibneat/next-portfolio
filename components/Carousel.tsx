@@ -101,8 +101,8 @@ const Carousel: FunctionComponent<CarouselProps> = ({ dots = true, className = "
         onMouseUp, onMouseLeave: onMouseUp
     }
 
-    return <div>
-        <div className={`${styles.wrapper} ${className} ${isTouch? styles.touch : ""}`} style={style} {...mouseProps}>
+    return <div className={className} style={style}>
+        <div className={`${styles.wrapper} ${isTouch? styles.touch : ""}`} {...mouseProps}>
             <div ref={carousel} style={carouselStyle} className={styles.carousel}>
                 {React.Children.map(children, (c, i) => <CarouselSlide key={i} index={i} onCurrent={setCurrent} >{c}</CarouselSlide>)}
             </div>
