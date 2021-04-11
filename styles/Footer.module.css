@@ -13,7 +13,7 @@
 
 .contact {
     text-align: center;
-    padding-top: 0;
+    padding-top: 0 !important;
 }
 
 .contact h2 {
