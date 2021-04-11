@@ -2,12 +2,21 @@
     padding: 2rem;
     text-align: center;
     max-width: 1200px;
+    --author: #333;
+}
+
+.author, .title {
+    color: var(--author);
 }
 
 .author {
     display: block;
-    margin-top: 1rem;
-    font-style: italic;
+    margin-top: 1.5rem;
+}
+
+.title {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
 }
 
 .quote {
@@ -40,4 +49,10 @@
 	content: '”';
 	right: -3rem;
 	bottom: 0;
+}
+
+@media (prefers-color-scheme: dark) {
+    .container {
+        --author: #eee;
+    }
 }
