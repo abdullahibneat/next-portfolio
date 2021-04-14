@@ -1,14 +1,30 @@
-.content p, .content figure {
-    line-height: 1.5;
+.content {
     max-width: 60ch;
-    margin: 2rem auto;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.content > * + * {
+    margin-top: 2rem;
+}
+
+.content ol, .content ul {
+    margin-left: 3rem;
+}
+
+.content * > li + li {
+    margin-top: 0.5rem;
+}
+
+.content a {
+    color: var(--primary-color);
+}
+
+.content img {
+    width: 100%;
 }
 
 .quote {
     max-width: 1000px;
     margin: 0 auto;
-}
-
-.content img {
-    width: 100%;
 }
