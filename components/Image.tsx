@@ -1,13 +1,14 @@
 import { FunctionComponent } from "react"
 import { getImage } from "@sanityClient"
 import styles from "@styles/Image.module.css"
+import { ImageOptions, SanityImage } from "types"
 
 type Props = {
     className?: string,
     src?: string,
-    asset: any,
+    asset: SanityImage,
     alt?: string,
-    imgOptions?: { [key: string]: string | number },
+    imgOptions?: ImageOptions,
     lazyLoad?: boolean
 }
 

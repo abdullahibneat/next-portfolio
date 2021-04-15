@@ -1,11 +1,6 @@
 import sanityClient from "@sanity/client"
+import { ImageOptions, SanityImage } from "types"
 import sanityJSON from "./sanity/sanity.json"
-
-type SanityImage = {
-    _ref: string
-}
-
-type ImageOptions = { [key: string]: string | number }
 
 /**
  * A utility funciton to convert a Sanity image asset to a direct URL to the image.
