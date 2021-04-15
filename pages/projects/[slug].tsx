@@ -8,13 +8,15 @@ import sanityClient from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
 import QuoteBox from "@components/QuoteBox"
+import Image from "@components/Image"
 
 const serializers = {
     types: {
         "quote": ({ node }) => {
             const { quote, author, title } = node
             return <QuoteBox className={styles.quote} text={quote} author={author} title={title} />
-        }
+        },
+        "image": ({ node }) => <Image imgOptions={{ w: 600, fit: "max", q: 75 }} asset={node.asset} alt={node.alt} />
     }
 }
 
@@ -25,7 +27,6 @@ const ProjectLayout: FunctionComponent<Project> = project =>
         <BlockContent
             className={styles.content}
             blocks={project.body}
-            imageOptions={{ w: 600, fit: "max" }} // 600px = 60ch, matching styles.content's max-width
             serializers={serializers}
             {...sanityClient.config()} />
     </Section>
