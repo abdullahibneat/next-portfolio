@@ -1,0 +1,11 @@
+.image {
+    width: 100%;
+}
+
+.alt {
+    opacity: 0.9;
+    margin: 0.5rem auto 0;
+    font-size: 0.9rem;
+    text-align: center;
+    max-width: 90%;
+}
