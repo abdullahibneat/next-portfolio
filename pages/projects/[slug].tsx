@@ -53,7 +53,7 @@ export const getStaticProps: GetStaticProps<Project> = async ({ params }) => {
             title,
             "slug": slug.current,
             "categories": categories[]->name,
-            "featuredImage": featuredImage.asset->url,
+            "featuredImage": featuredImage.asset->url + "?w=750&fit=max",
             github,
             live,
             summary,

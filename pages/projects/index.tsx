@@ -45,7 +45,7 @@ export const getStaticProps = async () => {
         *[_type == "project"] | order(_createdAt desc) {
             title,
             "slug": slug.current,
-            "featuredImage": featuredImage.asset->url,
+            "featuredImage": featuredImage.asset->url + "?w=750&fit=max",
             github,
             live,
             "categories": categories[]->name
