@@ -1,3 +1,4 @@
+import Meta from "@components/Meta"
 import Section from "@components/Section"
 import { GetStaticPaths, GetStaticProps } from "next"
 import { FunctionComponent } from "react"
@@ -17,8 +18,9 @@ const serializers = {
     }
 }
 
-const ProjectLayout: FunctionComponent<Project> = project => {
-    return <Section>
+const ProjectLayout: FunctionComponent<Project> = project =>
+    <Section>
+        <Meta description={project.summary} path={`/projects/${project.slug}`} image={project.featuredImage} />
         <ProjectHeader {...project} />
         <BlockContent
             className={styles.content}
@@ -27,7 +29,6 @@ const ProjectLayout: FunctionComponent<Project> = project => {
             serializers={serializers}
             {...sanityClient.config()} />
     </Section>
-}
 
 type Slug = { slug: string }
 export const getStaticPaths: GetStaticPaths<Slug> = async () => {

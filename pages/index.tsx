@@ -1,3 +1,4 @@
+import Meta from "@components/Meta"
 import Browser from "@components/Browser"
 import Carousel from "@components/Carousel"
 import HeroSection from "@components/HeroSection"
@@ -21,6 +22,7 @@ const testimonials: Quote[] = [
 ]
 
 const Home = () => <>
+    <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
             <div className={styles.heroText}>
