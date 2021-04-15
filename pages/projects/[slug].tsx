@@ -20,7 +20,7 @@ const serializers = {
 
 const ProjectLayout: FunctionComponent<Project> = project =>
     <Section>
-        <Meta description={project.summary} path={`/projects/${project.slug}`} image={project.featuredImage} />
+        <Meta title={project.title} description={project.summary} path={`/projects/${project.slug}`} image={project.featuredImage} />
         <ProjectHeader {...project} />
         <BlockContent
             className={styles.content}
