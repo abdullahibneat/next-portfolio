@@ -1,7 +1,20 @@
 import sanityClient from "@sanity/client"
 const sanityJSON = require("./sanity/sanity.json")
 
-export const getImage = (asset, params = "") => {
+type SanityImage = {
+    _ref: string
+}
+
+type ImageOptions = { [key: string]: string | number }
+
+/**
+ * A utility funciton to convert a Sanity image asset to a direct URL to the image.
+ * 
+ * @param asset A Sanity image asset
+ * @param params Optional parameters, refer to: https://www.sanity.io/docs/image-urls#BhPyF4m0
+ * @returns Image URL
+ */
+export const getImage = (asset: SanityImage, params: ImageOptions = {}) => {
     // A Sanity image asset obj looks like: { _ref: "image-[dash-separated-file-name]-[dimensions]-[ext]" }
     // To convert to a link, this "_ref" needs to be converted to: [dash-separated-file-name]-[dimensions].ext
     // i.e. remove "image-" from beginning, and replace the last dash ("-[ext]") with a dot (".[ext]")
@@ -13,7 +26,11 @@ export const getImage = (asset, params = "") => {
 
     // Remove the leading "image-", replace "-[ext]" with ".[ext]"
     const fileName = ref.substr(6, ref.length - 6 - fileExt.length) + fileExt
-    return `https://cdn.sanity.io/images/${sanityJSON.api.projectId}/production/${fileName}?${params}`
+
+    // Construct a query string for the image options
+    const query = Object.keys(params).map(k => `${k}=${params[k]}`).join("&")
+
+    return `https://cdn.sanity.io/images/${sanityJSON.api.projectId}/production/${fileName}?${query}`
 }
 
 export default sanityClient({

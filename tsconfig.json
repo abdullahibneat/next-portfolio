@@ -21,7 +21,7 @@
         "paths": {
             "@components/*": ["components/*"],
             "@styles/*": ["styles/*"],
-            "@sanityClient": ["sanityClient.js"]
+            "@sanityClient": ["sanityClient.ts"]
         }
     },
     "include": [
