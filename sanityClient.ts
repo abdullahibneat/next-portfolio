@@ -1,5 +1,5 @@
 import sanityClient from "@sanity/client"
-const sanityJSON = require("./sanity/sanity.json")
+import sanityJSON from "./sanity/sanity.json"
 
 type SanityImage = {
     _ref: string
