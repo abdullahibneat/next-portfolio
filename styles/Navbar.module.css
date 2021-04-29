@@ -6,9 +6,14 @@
 }
 
 .logo {
-    font-weight: 700;
-    font-size: 2rem;
     color: var(--primary-color);
+    width: 2rem;
+    height: 2rem;
+    transition: transform 250ms;
+}
+
+.logo:hover {
+    transform: scale(1.2);
 }
 
 .container, .links {
