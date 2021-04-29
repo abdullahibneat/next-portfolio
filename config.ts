@@ -1,7 +1,7 @@
 import { HomeProps } from "pages"
 
 const home: HomeProps = {
-    heroText: `<small style="font-weight: 400; font-size: 1rem">👋 Hello world!</small><br/>I'm Abdullah, a software developer from London who loves crafting modern experiences for the web.`,
+    heroText: `<small style="font-weight: 400; font-size: 1rem; padding-bottom: 1rem;">👋 Hello world!</small><br/>I'm Abdullah, a <strong>software developer</strong> from London who loves crafting modern experiences for the web.`,
     skills: {
         text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos a! Sed nisi laborum porro asperiores veniam earum recusandae nesciunt incidunt vitae aliquid minus omnis dolorum, iste beatae voluptas dolor!",
         skills: [
