@@ -31,6 +31,11 @@ export default {
             }]
         },
         {
+            name: "featured",
+            type: "boolean",
+            description: "If true, it will be displayed in the homepage hero section."
+        },
+        {
             name: "featuredImage",
             title: "Featured image",
             type: "image",
@@ -94,5 +99,8 @@ export default {
                 }
             ]
         }
-    ]    
+    ],
+    initialValue: {
+        featured: false
+    }
 }
