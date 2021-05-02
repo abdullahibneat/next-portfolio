@@ -7,9 +7,9 @@ type BrowserProps = {
 
 const Browser: FunctionComponent<BrowserProps> = ({ className = "", children }) => <div className={`${styles.browser} ${className}`}>
     <div className={styles.browserControls}>
-        <span style={{ backgroundColor: "red" }} />
-        <span style={{ backgroundColor: "orange" }} />
-        <span style={{ backgroundColor: "green" }} />
+        <span/>
+        <span/>
+        <span/>
     </div>
     <div className={styles.content}>
         {children}
