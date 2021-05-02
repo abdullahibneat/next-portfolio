@@ -57,6 +57,10 @@
     padding-bottom: 2rem;
 }
 
+.browser {
+    overflow: hidden;
+}
+
 /* SKILLS SECTION */
 
 .skilsSection {

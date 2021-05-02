@@ -6,13 +6,17 @@ import QuoteBox, { Quote } from "@components/QuoteBox"
 import Section from "@components/Section"
 import Skills, { Skill } from "@components/Skills"
 import Swiper from "@components/Swiper"
-import styles from "@styles/Home.module.css"
 import { FunctionComponent } from "react"
 import { GetStaticProps } from "next"
 import config from "config"
+import { Project } from "types"
+import sanityClient from "@sanityClient"
+import FeaturedProject from "@components/FeaturedProject"
+import styles from "@styles/Home.module.css"
 
 export type HomeProps = {
     heroText: string,
+    featuredProjects?: Project[],
     skills: {
         text: string,
         skills: Skill[]
@@ -20,19 +24,21 @@ export type HomeProps = {
     testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({ heroText, skills, testimonials }) => <>
+const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills, testimonials }) => <>
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
             <div className={styles.heroText} dangerouslySetInnerHTML={{ __html: heroText }}/>
-            <div className={styles.heroProjects}>
+            {featuredProjects && <div className={styles.heroProjects}>
                 <Swiper shakeFirst zDistance={150} className={styles.swiper}>
-                    <Browser className={styles.browser}>1</Browser>
-                    <Browser className={styles.browser}>2</Browser>
-                    <Browser className={styles.browser}>3</Browser>
+                    {featuredProjects.map((p, i) =>
+                        <Browser key={i} className={styles.browser}>
+                            <FeaturedProject {...p}/>
+                        </Browser>
+                    )}
                 </Swiper>
                 <img className={styles.label} src="ft-projects.png" draggable={false}/>
-            </div>
+            </div>}
         </Section>
     </HeroSection>
     <Section className={styles.skilsSection}>
@@ -48,6 +54,24 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, skills, testimonials }) 
 </>
 
 // Load props from config file
-export const getStaticProps: GetStaticProps<HomeProps> = async _ => ({ props: config.home })
+export const getStaticProps: GetStaticProps<HomeProps> = async _ => {
+    const featuredProjects = await sanityClient.fetch(`
+        *[_type == "project" && featured] | order(_createdAt desc) {
+            title,
+            "slug": slug.current,
+            "featuredImage": featuredImage.asset->url + "?w=300&h=150&fit=max",
+            github,
+            live,
+            summary,
+            "categories": categories[]->name
+        }
+    `)
+    return {
+        props: {
+            ...config.home,
+            featuredProjects
+        }
+    }
+}
 
 export default Home
