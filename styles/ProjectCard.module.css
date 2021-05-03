@@ -6,6 +6,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
 }
 
 .container img {
@@ -25,10 +26,8 @@
     grid-column: 1 / -1;
     grid-row: 1;
     background: rgba(255, 255, 255, 0.95);
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
     padding: 30px;
     border-radius: 30px;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
 }
@@ -83,6 +82,8 @@
     .container {
         align-items: center;
         border-radius: 0;
+        box-shadow: none;
+        overflow: initial;
     }
 
     .container:nth-of-type(2n) img {
@@ -107,5 +108,6 @@
     .content {
         grid-column: 2 / span 2;
         backdrop-filter: blur(2px);
+        box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
     }
 }
