@@ -1,56 +1,48 @@
-.wrapper {
-    position: relative;
-    color: white;
-    border-radius: 30px;
-    border: solid 3px rgba(0, 0, 0, 0.5);
-    transition: border-color 0.5s;
-}
-
-.card {
-    text-decoration: none;
-    height: 100%;
-    background-color: var(--primary-color);
-    background-position: center;
-    background-size: 100%;
+.container {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1000px;
+    min-height: 250px;
+    position: relative;
+    overflow: hidden;
     border-radius: 30px;
-    transition: background-size 0.5s;
 }
 
-.wrapper:hover .card {
-    background-size: 110%;
+.container img {
+    object-fit: contain;
+    object-position: center;
+
+    position: absolute;
+    bottom: 0; left: 0;
+    max-width: 300px;
+    max-height: 250px;
+    transform-origin: bottom;
+    transform: translate(-20%, 10%) rotate(10deg);
+    opacity: 0.1;
 }
 
 .content {
-    padding: 45px;
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
+    padding: 30px;
+    border-radius: 30px;
+    overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    flex-direction: column;
 }
 
-.content h2 span {
-    --background: rgba(0, 0, 0, 0.5);
-    padding: 0.25rem;
-    background-color: var(--background);
-    line-height: 1.75;
-    /* Add spacing on left and right sides */
-    box-shadow: 1rem 0 0 0 var(--background),
-                -1rem 0 0 0 var(--background);
-    transition: box-shadow 0.5s, background-color 0.5s;
+.content > * {
+    z-index: 1;
 }
 
-.wrapper:hover {
-    border-color: black;
-}
-
-.wrapper:hover .content h2 span {
-    --background: black;
+.content p {
+    padding: 1rem 0;
+    margin: auto 0;
 }
 
 .links {
-    position: absolute;
-    bottom: 30px; left: 30px;
     display: flex;
 }
 
@@ -58,7 +50,7 @@
     --background: rgba(0, 0, 0, 0.5);
     --text: white;
     color: var(--text);
-    display: block;
+    display: inline-block;
     padding: 0.5rem;
     border-radius: 50%;
     margin-right: 0.5rem;
@@ -75,4 +67,45 @@
     display: block;
     width: 25px;
     height: 25px;
+}
+
+.links button {
+    margin-left: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    .content {
+        background: rgba(34, 34, 34, 0.95);
+    }
+}
+
+@media only screen and (min-width: 600px) {
+    .container {
+        align-items: center;
+        border-radius: 0;
+    }
+
+    .container:nth-of-type(2n) img {
+        grid-column: 2 / span 2;
+    }
+    .container:nth-of-type(2n) .content {
+        grid-column: 1 / span 2;
+    }
+
+    .container img {
+        grid-column: 1 / span 2;
+        grid-row: 1;
+        max-width: none;
+        max-height: 300px;
+        width: 100%;
+        position: initial;
+        transform: none;
+        opacity: 1;
+        z-index: 0;
+    }
+
+    .content {
+        grid-column: 2 / span 2;
+        backdrop-filter: blur(2px);
+    }
 }

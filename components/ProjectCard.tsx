@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react"
 import { Project } from "types"
-import styles from "@styles/ProjectCardModern.module.css"
+import styles from "@styles/ProjectCard.module.css"
 import Link from "next/link"
 
 const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage = `https://source.unsplash.com/random/600x300?nature&random=${Math.random() * 50}`, slug, github = undefined, live = undefined, summary }) =>
