@@ -24,10 +24,13 @@
     border-radius: 30px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .content p {
-    margin: 1rem 0;
+    padding: 1rem 0;
+    margin: auto 0;
 }
 
 .links {
