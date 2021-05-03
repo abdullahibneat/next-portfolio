@@ -9,7 +9,7 @@
     margin-top: calc(-6rem - 7px);
     
     /* Disable horizontal scroll caused by swiper */
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .hero, .heroContent {
