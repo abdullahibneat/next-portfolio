@@ -34,7 +34,7 @@ const Projects: FunctionComponent<props> = ({ projects }) => {
             {projects
                 .filter(p => currentCategory === "All" || p.categories.includes(currentCategory))
                 .map((p, i) =>
-                    <ProjectCard key={i} url={`/projects/${p.slug}`} {...p} />
+                    <ProjectCard key={i} {...p} />
             )}
         </div>
     </Section>
@@ -47,6 +47,7 @@ export const getStaticProps = async () => {
             "slug": slug.current,
             "featuredImage": featuredImage.asset->url + "?w=750&fit=max",
             github,
+            summary,
             live,
             "categories": categories[]->name
         }
