@@ -4,13 +4,6 @@ h1.title {
     text-align: center;
 }
 
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    grid-auto-rows: minmax(300px, 1fr);
-    gap: 30px;
-}
-
 .categories {
     padding: 0.5rem 0;
     margin-bottom: 2.5rem;
@@ -33,8 +26,20 @@ h1.title {
     color: white;
 }
 
+.projects > div {
+    margin: 0 auto;
+}
+
+.projects > div + div {
+    margin-top: 3rem;
+}
+
 @media only screen and (min-width: 900px) {
     h1.title {
         text-align: initial;
+    }
+
+    .projects > div + div {
+        margin-top: 5rem;
     }
 }

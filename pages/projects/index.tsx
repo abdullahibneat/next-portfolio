@@ -30,7 +30,7 @@ const Projects: FunctionComponent<props> = ({ projects }) => {
                 <span key={i} onClick={() => setCategory(c)} className={currentCategory === c? styles.current : ""}>{c}</span>
             )}
         </div>
-        <div className={styles.grid}>
+        <div className={styles.projects}>
             {projects
                 .filter(p => currentCategory === "All" || p.categories.includes(currentCategory))
                 .map((p, i) =>
