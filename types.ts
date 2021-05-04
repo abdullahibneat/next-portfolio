@@ -2,11 +2,11 @@ export type Project = {
     title: string,
     slug: string,
     categories: string[],
-    featuredImage?: string,
+    featuredImage?: SanityImage,
     github?: string,
     live?: string,
     summary: string,
-    body: string
+    body: any
 }
 
 export type SanityImage = {
