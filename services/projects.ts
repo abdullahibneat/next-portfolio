@@ -16,7 +16,7 @@ export const getProjects: (options?: GetterOptions) => Promise<Project[]> = asyn
     return projects
 }
 
-export const getProject: (slug: string) => Promise<Project> = async slug => {
+export const getProjectBySlug: (slug: string) => Promise<Project> = async slug => {
     const project = await sanityClient.fetch(`
         *[_type == "project" && slug.current == $slug][0] {
             ...,
