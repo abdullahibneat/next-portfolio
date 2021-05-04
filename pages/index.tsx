@@ -10,9 +10,9 @@ import { FunctionComponent } from "react"
 import { GetStaticProps } from "next"
 import config from "config"
 import { Project } from "types"
-import sanityClient from "@sanityClient"
 import FeaturedProject from "@components/FeaturedProject"
 import styles from "@styles/Home.module.css"
+import { getProjects } from "services/projects"
 
 export type HomeProps = {
     heroText: string,
@@ -55,17 +55,8 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
 
 // Load props from config file
 export const getStaticProps: GetStaticProps<HomeProps> = async _ => {
-    const featuredProjects = await sanityClient.fetch(`
-        *[_type == "project" && featured] | order(_createdAt desc) {
-            title,
-            "slug": slug.current,
-            "featuredImage": featuredImage.asset->url + "?w=300&h=150&fit=max",
-            github,
-            live,
-            summary,
-            "categories": categories[]->name
-        }
-    `)
+    const featuredProjects = await getProjects({ featured: true })
+
     return {
         props: {
             ...config.home,

@@ -1,10 +1,10 @@
 import Meta from "@components/Meta"
 import Section from "@components/Section"
 import ProjectCard from "@components/ProjectCard"
-import sanityClient from "@sanityClient"
 import styles from "@styles/Projects.module.css"
 import { FunctionComponent, useState } from "react"
 import { Project } from "types"
+import { getProjects } from "services/projects"
 
 type props = {
     projects: Project[]
@@ -41,17 +41,7 @@ const Projects: FunctionComponent<props> = ({ projects }) => {
 }
 
 export const getStaticProps = async () => {
-    const projects = await sanityClient.fetch(`
-        *[_type == "project"] | order(_createdAt desc) {
-            title,
-            "slug": slug.current,
-            "featuredImage": featuredImage.asset->url + "?w=750&fit=max",
-            github,
-            summary,
-            live,
-            "categories": categories[]->name
-        }
-    `)
+    const projects = await getProjects()
     return {
         props: { projects }
     }

@@ -9,6 +9,7 @@ import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
 import QuoteBox from "@components/QuoteBox"
 import Image from "@components/Image"
+import { getAllSlugs, getProjectBySlug } from "services/projects"
 
 const serializers = {
     types: {
@@ -31,14 +32,8 @@ const ProjectLayout: FunctionComponent<Project> = project =>
             {...sanityClient.config()} />
     </Section>
 
-type Slug = { slug: string }
-export const getStaticPaths: GetStaticPaths<Slug> = async () => {
-    const paths: Slug[] = await sanityClient.fetch(`
-        *[_type == "project"] {
-            "slug": slug.current
-        }
-    `)
-
+export const getStaticPaths: GetStaticPaths = async () => {
+    const paths = await getAllSlugs()
     return {
         paths: paths.map(p => ({ params: p })), // Path needs to be an array of { params: { slug: "slug1" }, etc... }
         fallback: false // Send 404 page for unknown slugs
@@ -48,19 +43,7 @@ export const getStaticPaths: GetStaticPaths<Slug> = async () => {
 export const getStaticProps: GetStaticProps<Project> = async ({ params }) => {
     const { slug = "" } = params
 
-    const data: Project = await sanityClient.fetch(`
-        *[_type == "project" && slug.current == $slug][0] {
-            title,
-            "slug": slug.current,
-            "categories": categories[]->name,
-            "featuredImage": featuredImage.asset->url + "?w=750&fit=max",
-            github,
-            live,
-            summary,
-            body
-        }
-    `, { slug })
-    
+    const data: Project = await getProjectBySlug(slug as string)
     return {
         props: data
     }
