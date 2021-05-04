@@ -1,15 +1,9 @@
 import { FunctionComponent } from "react"
 import styles from "@styles/ProjectHeader.module.css"
+import { Project } from "types"
+import { getImage } from "@sanityClient"
 
-type props = {
-    title: string,
-    summary: string,
-    live?: string,
-    github?: string,
-    featuredImage?: string
-}
-
-const ProjectHeader: FunctionComponent<props> = ({ title, summary, live, github, featuredImage }) =>
+const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, github, featuredImage }) =>
     <div className={styles.container}>
         <div>
             <h1>{title}</h1>
@@ -19,7 +13,7 @@ const ProjectHeader: FunctionComponent<props> = ({ title, summary, live, github,
                 {github && <a href={github} target="__blank"><button>See source code →</button></a>}
             </div>
         </div>
-        {featuredImage && <img src={featuredImage} alt={title} />}
+        {featuredImage && <img src={getImage(featuredImage)} alt={title} />}
     </div>
 
 export default ProjectHeader

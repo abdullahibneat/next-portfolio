@@ -2,10 +2,11 @@ import { FunctionComponent } from "react"
 import { Project } from "types"
 import styles from "@styles/ProjectCard.module.css"
 import Link from "next/link"
+import { getImage } from "@sanityClient"
 
-const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage = `https://source.unsplash.com/random/600x300?nature&random=${Math.random() * 50}`, slug, github = undefined, live = undefined, summary }) =>
+const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage, slug, github = undefined, live = undefined, summary }) =>
     <div className={styles.container}>
-        <img src={featuredImage}  />
+        <img src={getImage(featuredImage, { w: 750, fit: "max" })}  />
         <div className={styles.content}>
             <h2>{title}</h2>
             <p>{summary}</p>
