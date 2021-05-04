@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { FunctionComponent } from "react"
 import { Project } from "types"
 import BlockContent from "@sanity/block-content-to-react"
-import sanityClient from "@sanityClient"
+import sanityClient, { getImage } from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
 import QuoteBox from "@components/QuoteBox"
@@ -22,7 +22,7 @@ const serializers = {
 
 const ProjectLayout: FunctionComponent<Project> = project =>
     <Section>
-        <Meta title={project.title} description={project.summary} path={`/projects/${project.slug}`} image={project.featuredImage} />
+        <Meta title={project.title} description={project.summary} path={`/projects/${project.slug}`} image={getImage(project.featuredImage)} />
         <ProjectHeader {...project} />
         <BlockContent
             className={styles.content}
