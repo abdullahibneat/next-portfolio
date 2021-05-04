@@ -5,15 +5,15 @@ import sanityJSON from "./sanity/sanity.json"
 /**
  * A utility funciton to convert a Sanity image asset to a direct URL to the image.
  * 
- * @param asset A Sanity image asset
+ * @param img A Sanity image asset
  * @param params Optional parameters, refer to: https://www.sanity.io/docs/image-urls#BhPyF4m0
  * @returns Image URL
  */
-export const getImage = (asset: SanityImage, params: ImageOptions = {}) => {
+export const getImage = (img: SanityImage, params: ImageOptions = {}) => {
     // A Sanity image asset obj looks like: { _ref: "image-[dash-separated-file-name]-[dimensions]-[ext]" }
     // To convert to a link, this "_ref" needs to be converted to: [dash-separated-file-name]-[dimensions].ext
     // i.e. remove "image-" from beginning, and replace the last dash ("-[ext]") with a dot (".[ext]")
-    const ref = asset._ref
+    const ref = img.asset._ref
 
     // Get the extension in the form ".[ext]"
     const lastDash = ref.lastIndexOf("-") + 1
