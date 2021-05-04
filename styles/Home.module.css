@@ -37,15 +37,13 @@
 
 .heroProjects {
     position: relative;
-    width: 75vw;
-    height: 50vw;
 }
 
 .label {
-    position: absolute;
-    bottom: -7rem;
-    right: -2rem;
     max-height: 50px;
+    position: absolute;
+    bottom: -2.5rem;
+    right: 0;
 }
 
 .swiper, .browser {
@@ -84,12 +82,6 @@
     margin-bottom: 1rem;
 }
 
-@media only screen and (min-width: 570px) {
-    .label {
-        bottom: -2rem;
-    }
-}
-
 @media only screen and (min-width: 800px) {
     .hero {
         background-size: 70% 70%;
@@ -108,10 +100,6 @@
         text-align: initial;
         padding-bottom: 0;
         padding-right: 2rem;
-    }
-
-    .heroProjects {
-        height: 40vh;
     }
 
     .swiper {
