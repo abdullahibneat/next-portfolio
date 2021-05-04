@@ -4,8 +4,9 @@ import { Project } from "types"
 export const getProjects: () => Promise<Project[]> = async () => {
     const projects = await sanityClient.fetch(`
         *[_type == "project"] | order(_createdAt desc) {
+            ...,
             "slug": slug.current,
-            ...
+            "categories": categories[]->name
         }
     `) as Project[]
     return projects
@@ -14,8 +15,9 @@ export const getProjects: () => Promise<Project[]> = async () => {
 export const getProject: (slug: string) => Promise<Project> = async slug => {
     const project = await sanityClient.fetch(`
         *[_type == "project" && slug.current == $slug][0] {
+            ...,
             "slug": slug.current,
-            ...
+            "categories": categories[]->name
         }
     `, { slug })
     return project
