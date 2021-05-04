@@ -9,7 +9,7 @@
     box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
 }
 
-.container img {
+.container .ft {
     object-fit: contain;
     object-position: center;
 
@@ -86,14 +86,14 @@
         overflow: initial;
     }
 
-    .container:nth-of-type(2n) img {
+    .container:nth-of-type(2n) .ft {
         grid-column: 2 / span 2;
     }
     .container:nth-of-type(2n) .content {
         grid-column: 1 / span 2;
     }
 
-    .container img {
+    .container .ft {
         grid-column: 1 / span 2;
         grid-row: 1;
         max-width: none;

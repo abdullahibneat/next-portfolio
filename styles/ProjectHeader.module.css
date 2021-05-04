@@ -12,9 +12,10 @@
     margin: 1.5rem 0;
 }
 
-.container img {
+.container .ft {
+    width: 100%;
     max-width: 90%;
-    margin-top: 2.5rem;
+    margin: 2.5rem auto 0;
 }
 
 .container a:not(:last-of-type) {
@@ -30,7 +31,7 @@
         align-items: center;
     }
 
-    .container img {
+    .container .ft {
         max-width: 50%;
         margin-top: 0;
         padding-left: 2rem;

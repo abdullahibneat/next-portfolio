@@ -30,7 +30,7 @@
     margin: 0.5rem 0;
 }
 
-.container img {
+.container .ft {
     opacity: 0.3;
     position: absolute;
     bottom: 0; right: 0;

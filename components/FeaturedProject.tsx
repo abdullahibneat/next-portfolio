@@ -2,7 +2,8 @@ import Link from "next/link"
 import { FunctionComponent } from "react"
 import { Project } from "types"
 import styles from "@styles/FeaturedProject.module.css"
-import { getImage } from "@sanityClient"
+import { sanityLoader } from "@sanityClient"
+import Img from "next/image"
 
 const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summary, featuredImage, slug }) =>
     <div className={styles.container}>
@@ -14,7 +15,7 @@ const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summar
         <div>
             <Link href={`projects/${slug}`}><button>Read more</button></Link>
         </div>
-        {featuredImage && <img draggable={false} src={getImage(featuredImage, { w: 300, h: 150, fit: "max" })} alt={title} />}
+        {featuredImage && <div className={styles.ft}><Img loader={sanityLoader} src={featuredImage} width={300} height={150} alt={title} objectFit="contain" /></div>}
     </div>
 
 export default FeaturedProject
