@@ -8,7 +8,6 @@ import sanityClient, { getImage } from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
 import QuoteBox from "@components/QuoteBox"
-import Image from "@components/Image"
 import { getAllSlugs, getProjectBySlug } from "services/projects"
 
 const serializers = {
@@ -17,7 +16,7 @@ const serializers = {
             const { quote, author, title } = node
             return <QuoteBox className={styles.quote} text={quote} author={author} title={title} />
         },
-        "image": ({ node }) => <Image imgOptions={{ w: 600, fit: "max", q: 75 }} asset={node} alt={node.alt} />
+        "image": ({ node }) => <img width="600px" src={getImage(node)} alt={node.alt} />
     }
 }
 
