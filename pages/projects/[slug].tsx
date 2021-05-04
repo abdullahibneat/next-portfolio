@@ -17,8 +17,7 @@ const serializers = {
             const { quote, author, title } = node
             return <QuoteBox className={styles.quote} text={quote} author={author} title={title} />
         },
-        "image": ({ node }) => <img width="600px" src={getImage(node)} alt={node.alt} />
-        // "image": ({ node }) => <Img loader={sanityLoader} src={node} width={1920} height={1080} alt={node.alt || ""} objectFit="contain" />
+        "image": ({ node }) => <Img loader={sanityLoader} src={getImage(node)} width={1920} height={1080} alt={node.alt || ""} objectFit="contain" />
     }
 }
 
