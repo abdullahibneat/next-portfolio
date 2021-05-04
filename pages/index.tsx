@@ -37,7 +37,7 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
                         </Browser>
                     )}
                 </Swiper>
-                <img className={styles.label} src="ft-projects.png" draggable={false}/>
+                <img className={styles.label} src="ft-projects.png" alt="" draggable={false}/>
             </div>}
         </Section>
     </HeroSection>

@@ -6,7 +6,7 @@ import { getImage } from "@sanityClient"
 
 const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage, slug, github = undefined, live = undefined, summary }) =>
     <div className={styles.container}>
-        <img src={getImage(featuredImage, { w: 750, fit: "max" })}  />
+        <img src={getImage(featuredImage, { w: 750, fit: "max" })} alt={featuredImage.alt || title} />
         <div className={styles.content}>
             <h2>{title}</h2>
             <p>{summary}</p>
