@@ -5,9 +5,9 @@ type GetterOptions = {
     featured?: boolean
 }
 
-export const getProjects: (options?: GetterOptions) => Promise<Project[]> = async ({ featured = false }) => {
+export const getProjects: (options?: GetterOptions) => Promise<Project[]> = async (options = { featured: false }) => {
     const projects = await sanityClient.fetch(`
-        *[_type == "project" ${featured? "&& featured" : ""}] | order(_createdAt desc) {
+        *[_type == "project" ${options.featured? "&& featured" : ""}] | order(_createdAt desc) {
             ...,
             "slug": slug.current,
             "categories": categories[]->name
