@@ -1,0 +1,14 @@
+.img {
+    cursor: pointer;
+}
+
+.alt {
+    opacity: 0.9;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.modalImg {
+    width: 100%;
+}
