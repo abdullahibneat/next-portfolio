@@ -4,12 +4,12 @@ import { GetStaticPaths, GetStaticProps } from "next"
 import { FunctionComponent } from "react"
 import { Project } from "types"
 import BlockContent from "@sanity/block-content-to-react"
-import sanityClient, { getImage, sanityLoader } from "@sanityClient"
+import sanityClient, { getImage } from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
 import styles from "@styles/ProjectLayout.module.css"
 import QuoteBox from "@components/QuoteBox"
 import { getAllSlugs, getProjectBySlug } from "services/projects"
-import Img from "next/image"
+import ImageModal from "@components/ImageModal"
 
 const serializers = {
     types: {
@@ -17,7 +17,7 @@ const serializers = {
             const { quote, author, title } = node
             return <QuoteBox className={styles.quote} text={quote} author={author} title={title} />
         },
-        "image": ({ node }) => <Img loader={sanityLoader} src={getImage(node)} width={852} height={480} alt={node.alt || ""} objectFit="contain" />
+        "image": ({ node }) => <ImageModal image={node} width={852} height={480} alt={node.alt} />
     }
 }
 
