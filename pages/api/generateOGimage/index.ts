@@ -44,7 +44,8 @@ const generateImage: NextApiHandler = async ({ body }, res) => {
         })
 
         // Render EJS template
-        const template = await ejs.renderFile(__dirname + "/template.ejs", data)
+        // __dirname returns the /api folder
+        const template = await ejs.renderFile(__dirname + "/generateOGimage/template.ejs", data)
         await page.setContent(template)
 
         // Take screenshot and send back as response
