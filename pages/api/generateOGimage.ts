@@ -18,6 +18,13 @@ const defaultParams = {
 }
 
 const generateImage: NextApiHandler = async ({ body }, res) => {
+    // Parse body as JSON
+    if(typeof body !== "object") try {
+        body = JSON.parse(body)
+    } catch(_) {
+        return res.status(400).json({ error: "Body must contain JSON data!" })
+    }
+
     // Overwrite default parameters using data from req body
     const data: Body = { ...defaultParams, ...body }
 
