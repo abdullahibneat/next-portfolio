@@ -4,7 +4,6 @@
         "name": "sanity"
     },
     "api": {
-        "projectId": "pdy7evlw",
         "dataset": "production"
     },
     "plugins": [
