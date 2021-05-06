@@ -60,7 +60,10 @@ const generateImage: NextApiHandler = async ({ body }, res) => {
     }
 }
 
-export default generateImage
+// Enable CORS
+const cors = require("micro-cors")()
+
+export default cors(generateImage)
 
 const template = `<!DOCTYPE html>
 <html lang="en">
