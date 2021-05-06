@@ -36,6 +36,14 @@ export default {
             description: "If true, it will be displayed in the homepage hero section."
         },
         {
+            name: "mockup",
+            type: "image",
+            fields: [{
+                name: "alt",
+                type: "string"
+            }]
+        },
+        {
             name: "featuredImage",
             title: "Featured image",
             type: "image",

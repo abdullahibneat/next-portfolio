@@ -11,6 +11,7 @@ export const getProjects: (options?: GetterOptions) => Promise<Project[]> = asyn
             ...,
             "slug": slug.current,
             "categories": categories[]->name,
+            "mockup": featuredImage.asset->url,
             "featuredImage": featuredImage.asset->url
         }
     `) as Project[]
@@ -23,6 +24,7 @@ export const getProjectBySlug: (slug: string) => Promise<Project> = async slug =
             ...,
             "slug": slug.current,
             "categories": categories[]->name,
+            "mockup": mockup.asset->url,
             "featuredImage": featuredImage.asset->url
         }
     `, { slug }) as Project

@@ -2,6 +2,7 @@ export type Project = {
     title: string,
     slug: string,
     categories: string[],
+    mockup?: string,
     featuredImage?: string,
     github?: string,
     live?: string,
