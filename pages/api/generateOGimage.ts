@@ -122,11 +122,12 @@ const template = `<!DOCTYPE html>
             position: absolute;
         }
         img {
-            height: 10rem;
-            width: 15rem;
+            max-height: 10rem;
+            min-width: 10rem;
+            max-width: 15rem;
             object-fit: contain;
-            object-position: right;
-            bottom: 0; right: 0;
+            object-position: bottom;
+            bottom: 1rem; right: 1rem;
             z-index: -1;
         }
         .logo {
