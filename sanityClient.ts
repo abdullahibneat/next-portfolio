@@ -1,12 +1,11 @@
 import sanityClient from "@sanity/client"
 import imageUrlBuilder from '@sanity/image-url'
-import sanityJSON from "./sanity/sanity.json"
 import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 import { ImageLoader } from "next/image"
 
 const client = sanityClient({
     // Retrieve the projectID from the Sanity studio config file
-    projectId: sanityJSON.api.projectId,
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: "production",
     useCdn: process.env.NODE_ENV === "production",
     apiVersion: "2021-04-10"
