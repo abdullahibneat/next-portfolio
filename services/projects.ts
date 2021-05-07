@@ -11,7 +11,7 @@ export const getProjects: (options?: GetterOptions) => Promise<Project[]> = asyn
             ...,
             "slug": slug.current,
             "categories": categories[]->name,
-            "mockup": featuredImage.asset->url,
+            "mockup": mockup.asset->url,
             "featuredImage": featuredImage.asset->url
         }
     `) as Project[]
