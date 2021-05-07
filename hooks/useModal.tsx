@@ -26,16 +26,9 @@ const useModal = (initVisible = false) => {
     const hide = () => setVisible(false)
     const toggle = () => setVisible(!visible)
 
-    const Modal: FunctionComponent = ({ children }) => {
-        // Disable body scrolling when modal is visible
-        useEffect(() => {
-            document.querySelector("body").style.overflow = visible? "hidden" : "initial"
-        }, [visible])
-
-        return visible
-            ? <ModalComponent onClose={hide} children={children} />
-            : null
-    }
+    const Modal: FunctionComponent = ({ children }) => visible
+        ? <ModalComponent onClose={hide} children={children} />
+        : null
 
     return { show, hide, toggle, Modal }
 }
