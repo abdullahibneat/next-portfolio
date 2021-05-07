@@ -4,7 +4,7 @@ import { Project } from "types"
 import { sanityLoader } from "@sanityClient"
 import Img from "next/image"
 
-const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, github, featuredImage }) =>
+const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, github, mockup }) =>
     <div className={styles.container}>
         <div>
             <h1>{title}</h1>
@@ -14,7 +14,7 @@ const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, githu
                 {github && <a href={github} target="__blank"><button>See source code →</button></a>}
             </div>
         </div>
-        {featuredImage && <div className={styles.ft}><Img loader={sanityLoader} src={featuredImage} width={600} height={600} alt={title} objectFit="contain" /></div>}
+        {mockup && <div className={styles.ft}><Img loader={sanityLoader} src={mockup} width={600} height={600} alt={title} objectFit="contain" /></div>}
     </div>
 
 export default ProjectHeader

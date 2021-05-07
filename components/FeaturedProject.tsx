@@ -5,7 +5,7 @@ import styles from "@styles/FeaturedProject.module.css"
 import { sanityLoader } from "@sanityClient"
 import Img from "next/image"
 
-const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summary, featuredImage, slug }) =>
+const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summary, mockup, slug }) =>
     <div className={styles.container}>
         <h2>{title}</h2>
         <div className={styles.categories}>
@@ -15,7 +15,7 @@ const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summar
         <div>
             <Link href={`projects/${slug}`}><button>Read more</button></Link>
         </div>
-        {featuredImage && <div className={styles.ft}><Img loader={sanityLoader} src={featuredImage} width={300} height={150} alt={title} objectFit="contain" /></div>}
+        {mockup && <div className={styles.ft}><Img loader={sanityLoader} src={mockup} width={300} height={150} alt={title} objectFit="contain" /></div>}
     </div>
 
 export default FeaturedProject

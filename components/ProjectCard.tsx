@@ -5,10 +5,11 @@ import Link from "next/link"
 import { sanityLoader } from "@sanityClient"
 import Img from "next/image"
 
-const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage, slug, github = undefined, live = undefined, summary }) =>
-    <div className={styles.container}>
+const ProjectCard: FunctionComponent<Project> = ({ title, mockup, featuredImage, slug, github = undefined, live = undefined, summary }) => {
+    console.log({ mockup, featuredImage })
+    return <div className={styles.container}>
         <div className={styles.ft}>
-            <Img loader={sanityLoader} src={featuredImage} width={700} height={300} objectFit="contain" alt={title} />
+            {mockup && <Img loader={sanityLoader} src={mockup} width={700} height={300} objectFit="contain" alt={title} />}
         </div>
         <div className={styles.content}>
             <h2>{title}</h2>
@@ -27,5 +28,6 @@ const ProjectCard: FunctionComponent<Project> = ({ title, featuredImage, slug, g
             </div>
         </div>
     </div>
+}
 
 export default ProjectCard
