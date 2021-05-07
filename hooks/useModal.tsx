@@ -12,7 +12,7 @@ const ModalComponent: FunctionComponent<Props> = ({ onClose = () => {}, children
 
     return isBrowser
         ? createPortal(<div id="modal-wrapper" onClick={onClose}>
-            <div id="modal-content">
+            <div id="modal-content" onClick={e => e.stopPropagation()}>
                 <div id="modal-close" onClick={onClose}>✖</div>
                 {children}
             </div>
