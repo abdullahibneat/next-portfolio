@@ -5,6 +5,10 @@ export const getHomepage: () => Promise<HomeProps> = async () => {
     const home = await sanityClient.fetch(`
         *[_type == "homeSettings"][0] {
             ...,
+            "skills": skills[] {
+                name,
+                "icon": icon.asset->url
+            },
             "featuredProjects": featuredProjects[]-> {
                 ...,
                 "categories": categories[]->name,
