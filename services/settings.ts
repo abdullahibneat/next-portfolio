@@ -5,7 +5,7 @@ export const getSettings: () => Promise<SiteSettings> = async () => {
     const settings = await sanityClient.fetch(`
         *[_type == "siteSettings"][0] {
             ...,
-            "image": defaultImage.asset->url
+            "image": image.asset->url
         }
     `) as SiteSettings
     return settings
