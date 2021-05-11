@@ -1,6 +1,8 @@
 import { FunctionComponent } from "react"
 import Head from "next/head"
-import defaultConfig from "config"
+import { getSettings } from "services/settings"
+
+const defaultConfig = await getSettings()
 
 type Props = {
     title?: string,
@@ -14,7 +16,7 @@ const makeTitle = (title?: string) => {
     return title + " | " + defaultConfig.name
 }
 
-const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.description, path = "/", image = defaultConfig.defaultImage }) => <Head>
+const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.description, path = "/", image = defaultConfig.image }) => <Head>
     {/* Default meta tags */}
     <title>{makeTitle(title)}</title>
     <meta name="description" content={description} />
