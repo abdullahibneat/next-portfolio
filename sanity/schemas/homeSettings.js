@@ -22,6 +22,29 @@ export default {
             validation: Rule => Rule.required()
         },
         {
+            name: "skills",
+            type: "array",
+            of: [{
+                type: "object",
+                fields: [
+                    {
+                        name: "name",
+                        type: "string",
+                        validation: Rule => Rule.required()
+                    },
+                    {
+                        name: "icon",
+                        type: "image",
+                        options: {
+                            accept: "image/svg+xml"
+                        },
+                        validation: Rule => Rule.required()
+                    }
+                ]
+            }],
+            validation: Rule => Rule.required()
+        },
+        {
             name: "testimonials",
             type: "array",
             of: [quote],
