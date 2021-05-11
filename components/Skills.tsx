@@ -1,10 +1,6 @@
 import { FunctionComponent } from "react"
 import styles from "@styles/Skills.module.css"
-
-export type Skill = {
-    name: string,
-    description: string
-}
+import { Skill } from "types"
 
 type SkillsProps = {
     skills: Skill[],
@@ -14,8 +10,8 @@ type SkillsProps = {
 const Skills: FunctionComponent<SkillsProps> = ({ skills, className = "" }) => <div className={`${styles.container} ${className}`}>
     {skills.map((s, i) =>
         <div key={i} className={styles.skill}>
-            <h3>{s.name}</h3>
-            <p>{s.description}</p>
+            <img src={s.icon} alt={s.name}/>
+            <p>{s.name}</p>
         </div>
     )}
 </div>

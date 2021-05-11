@@ -1,33 +1,31 @@
 .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, 7rem);
+    justify-content: center;
     gap: 1rem;
 }
 
 .skill {
-    padding: 2rem;
-    background: var(--primary-color);
+    background: #e8e8e8;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
     border-radius: 1rem;
-    color: white;
-    font-size: 0.9rem;
-
-    display: flex;
-    flex-direction: column;
-
-    transform: scale(1);
-    transition: transform ease 0.25s;
+    padding: 1rem;
+    text-align: center;
 }
 
-.skill:hover {
-    transform: scale(1.025);
-}
-
-.skill h3 {
+.skill img {
+    width: 2rem;
+    height: 2rem;
+    object-fit: contain;
     margin-bottom: 0.5rem;
 }
 
-@media only screen and (max-width: 470px) {
-    .container {
-        grid-template-columns: 1fr;
+.skill p {
+    font-size: 0.9rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    .skill {
+        background: #2c2c2c;
     }
 }
