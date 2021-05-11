@@ -33,11 +33,6 @@ export default {
             }]
         },
         {
-            name: "featured",
-            type: "boolean",
-            description: "If true, it will be displayed in the homepage hero section."
-        },
-        {
             name: "mockup",
             type: "image",
             fields: [{
