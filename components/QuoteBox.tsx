@@ -1,11 +1,6 @@
 import { FunctionComponent } from "react"
 import styles from "@styles/QuoteBox.module.css"
-
-export type Quote = {
-    quote: string,
-    author: string,
-    title?: string
-}
+import { Quote } from "types"
 
 const QuoteBox: FunctionComponent<Quote & { className?: string }> = ({ className = "", quote, author, title }) =>
     <div className={`${styles.container} ${className}`}>
