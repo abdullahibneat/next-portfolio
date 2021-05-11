@@ -20,3 +20,12 @@ export type Quote = {
     author: string,
     title?: string
 }
+
+export type SiteSettings = {
+    url: string,
+    name: string,
+    description: string,
+    github: string,
+    twitter: string,
+    image: string
+}
