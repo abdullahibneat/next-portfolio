@@ -16,7 +16,7 @@ export type Skill = {
 }
 
 export type Quote = {
-    quote: string,
+    quote: any,
     author: string,
     title?: string
 }
