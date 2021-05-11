@@ -4,27 +4,26 @@ import Carousel from "@components/Carousel"
 import HeroSection from "@components/HeroSection"
 import QuoteBox, { Quote } from "@components/QuoteBox"
 import Section from "@components/Section"
-import Skills, { Skill } from "@components/Skills"
 import Swiper from "@components/Swiper"
 import { FunctionComponent } from "react"
 import { GetStaticProps } from "next"
 import config from "config"
-import { Project } from "types"
+import { Project, Skill } from "types"
 import FeaturedProject from "@components/FeaturedProject"
 import styles from "@styles/Home.module.css"
 import { getProjects } from "services/projects"
+import { getSkills } from "services/skills"
+import Skills from "@components/Skills"
 
 export type HomeProps = {
     heroText: string,
     featuredProjects?: Project[],
-    skills: {
-        text: string,
-        skills: Skill[]
-    },
+    skillsText: string,
+    skills?: Skill[],
     testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills, testimonials }) => <>
+const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skillsText, skills = [], testimonials }) => <>
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
@@ -42,11 +41,9 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
         </Section>
     </HeroSection>
     <Section className={styles.skilsSection}>
-        <Skills skills={skills.skills} className={styles.skillsBox} />
-        <div className={styles.skillsContent}>
-            <h1>Skills</h1>
-            <p>{skills.text}</p>
-        </div>
+        <h1>Skills</h1>
+        <p>{skillsText}</p>
+        <Skills skills={skills} />
     </Section>
     <Carousel style={{ marginBottom: "5rem" }}>
         {testimonials.map((q, i) => <QuoteBox key={i} {...q} />)}
@@ -56,11 +53,13 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
 // Load props from config file
 export const getStaticProps: GetStaticProps<HomeProps> = async _ => {
     const featuredProjects = await getProjects({ featured: true })
+    const skills = await getSkills()
 
     return {
         props: {
             ...config.home,
-            featuredProjects
+            featuredProjects,
+            skills
         }
     }
 }
