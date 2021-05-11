@@ -14,8 +14,8 @@ import ImageModal from "@components/ImageModal"
 const serializers = {
     types: {
         "quote": ({ node }) => {
-            const { quote, author, title } = node
-            return <QuoteBox className={styles.quote} quote={quote} author={author} title={title} />
+            const { quote, author, jobTitle } = node
+            return <QuoteBox className={styles.quote} quote={quote} author={author} jobTitle={jobTitle} />
         },
         "image": ({ node }) => <ImageModal image={node} width={852} height={480} alt={node.alt} />
     }

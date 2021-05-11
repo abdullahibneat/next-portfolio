@@ -13,7 +13,7 @@ export default {
             validation: Rule => Rule.required()
         },
         {
-            name: "title",
+            name: "jobTitle",
             type: "string"
         }
     ]

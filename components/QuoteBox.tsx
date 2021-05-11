@@ -4,7 +4,7 @@ import { Quote } from "types"
 import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
 
-const QuoteBox: FunctionComponent<Quote & { className?: string }> = ({ className = "", quote, author, title }) =>
+const QuoteBox: FunctionComponent<Quote & { className?: string }> = ({ className = "", quote, author, jobTitle }) =>
     <div className={`${styles.container} ${className}`}>
         <div className={styles.quote}>
             <BlockContent
@@ -12,7 +12,7 @@ const QuoteBox: FunctionComponent<Quote & { className?: string }> = ({ className
                 {...sanityClient.config()} />
         </div>
         <p className={styles.author}>{author}</p>
-        {title && <div className={styles.title} dangerouslySetInnerHTML={{ __html: title }}></div>}
+        {jobTitle && <p className={styles.jobTitle}>{jobTitle}</p>}
     </div>
 
 export default QuoteBox
