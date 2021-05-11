@@ -64,8 +64,9 @@
     max-width: 60ch;
 }
 
-.skilsSection > p {
+.skillsText {
     margin: 1rem 0 2rem;
+    word-break: break-all;
 }
 
 @media only screen and (min-width: 800px) {

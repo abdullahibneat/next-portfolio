@@ -7,18 +7,20 @@ import Section from "@components/Section"
 import Swiper from "@components/Swiper"
 import { FunctionComponent } from "react"
 import { GetStaticProps } from "next"
-import config from "config"
 import { Project, Quote, Skill } from "types"
 import FeaturedProject from "@components/FeaturedProject"
 import styles from "@styles/Home.module.css"
 import { getProjects } from "services/projects"
 import { getSkills } from "services/skills"
 import Skills from "@components/Skills"
+import { getHomepage } from "services/pages"
+import BlockContent from "@sanity/block-content-to-react"
+import sanityClient from "@sanityClient"
 
 export type HomeProps = {
-    heroText: string,
+    heroText: any,
     featuredProjects?: Project[],
-    skillsText: string,
+    skillsText: any,
     skills?: Skill[],
     testimonials: Quote[]
 }
@@ -27,7 +29,10 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
-            <div className={styles.heroText} dangerouslySetInnerHTML={{ __html: heroText }}/>
+            <BlockContent
+                className={styles.heroText}
+                blocks={heroText}
+                {...sanityClient.config()} />
             {featuredProjects && <div className={styles.heroProjects}>
                 <Swiper shakeFirst zDistance={150} className={styles.swiper}>
                     {featuredProjects.map((p, i) =>
@@ -42,7 +47,11 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
     </HeroSection>
     <Section className={styles.skilsSection}>
         <h1>Skills</h1>
-        <p>{skillsText}</p>
+        <div className={styles.skillsText}>
+            <BlockContent
+                blocks={skillsText}
+                {...sanityClient.config()} />
+        </div>
         <Skills skills={skills} />
     </Section>
     <Carousel style={{ marginBottom: "5rem" }}>
@@ -52,12 +61,13 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
 
 // Load props from config file
 export const getStaticProps: GetStaticProps<HomeProps> = async _ => {
+    const homeProps = await getHomepage()
     const featuredProjects = await getProjects({ featured: true })
     const skills = await getSkills()
 
     return {
         props: {
-            ...config.home,
+            ...homeProps,
             featuredProjects,
             skills
         }
