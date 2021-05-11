@@ -10,7 +10,6 @@ import { GetStaticProps } from "next"
 import { Project, Quote, Skill } from "types"
 import FeaturedProject from "@components/FeaturedProject"
 import styles from "@styles/Home.module.css"
-import { getProjects } from "services/projects"
 import { getSkills } from "services/skills"
 import Skills from "@components/Skills"
 import { getHomepage } from "services/pages"
@@ -62,13 +61,11 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
 // Load props from config file
 export const getStaticProps: GetStaticProps<HomeProps> = async _ => {
     const homeProps = await getHomepage()
-    const featuredProjects = await getProjects({ featured: true })
     const skills = await getSkills()
 
     return {
         props: {
             ...homeProps,
-            featuredProjects,
             skills
         }
     }
