@@ -23,6 +23,7 @@
     position: relative;
     font-size: 2rem;
     white-space: pre-wrap;
+    word-break: break-word;
 }
 
 .quote strong {
