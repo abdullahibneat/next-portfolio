@@ -9,3 +9,8 @@ export type Project = {
     summary: string,
     body: any
 }
+
+export type Skill = {
+    name: string,
+    icon: string
+}
