@@ -14,8 +14,7 @@ export default {
         },
         {
             name: "title",
-            type: "string",
-            validation: Rule => Rule.required()
+            type: "string"
         }
     ]
 }
