@@ -4,9 +4,9 @@ const home: HomeProps = {
     heroText: `<small style="font-weight: 400; font-size: 1rem; padding-bottom: 1rem;">👋 Hello world!</small><br/>I'm Abdullah, a <strong>software developer</strong> from London who loves crafting modern experiences for the web.`,
     skillsText: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, dignissimos a! Sed nisi laborum porro asperiores veniam earum recusandae nesciunt incidunt vitae aliquid minus omnis dolorum, iste beatae voluptas dolor!",
     testimonials: [
-        { author: "Adam Smith", text: "Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Corrupti mollitia voluptatibus <strong>aliquam</strong> maiores, nesciunt dolorum!" },
-        { author: "John Smith", text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
-        { author: "John Doe", text: "Lorem ipsum dolor sit amet consectetur <strong>adipisicing</strong> elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
+        { author: "Adam Smith", quote: "Lorem ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Corrupti mollitia voluptatibus <strong>aliquam</strong> maiores, nesciunt dolorum!" },
+        { author: "John Smith", quote: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
+        { author: "John Doe", quote: "Lorem ipsum dolor sit amet consectetur <strong>adipisicing</strong> elit. Autem, quis natus perspiciatis vero facilis repellendus?" },
     ]
 }
 
