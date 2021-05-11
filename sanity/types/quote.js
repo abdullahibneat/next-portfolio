@@ -4,8 +4,8 @@ export default {
     fields: [
         {
             name: "quote",
-            type: "text",
-            validation: Rule => Rule.required()
+            type: "array",
+            of: [{ type: "block" }]
         },
         {
             name: "author",
