@@ -18,6 +18,7 @@ import ProjectCard from "@components/ProjectCard"
 import Link from "next/link"
 
 export type HomeProps = {
+    heroSmallText?: string,
     heroText: any,
     featuredProjects?: Project[],
     skillsText: any,
@@ -26,14 +27,18 @@ export type HomeProps = {
     testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skillsText, skills = [], latestProject, testimonials }) => <>
+const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, featuredProjects, skillsText, skills = [], latestProject, testimonials }) => <>
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
-            <BlockContent
-                className={styles.heroText}
-                blocks={heroText}
-                {...sanityClient.config()} />
+            <div className={styles.heroTextContainer}>
+                {heroSmallText && <div>{heroSmallText}</div>}
+                <div className={styles.heroText}>
+                    <BlockContent
+                        blocks={heroText}
+                        {...sanityClient.config()} />
+                </div>
+            </div>
             {featuredProjects && <div className={styles.heroProjects}>
                 <Swiper shakeFirst zDistance={150} className={styles.swiper}>
                     {featuredProjects.map((p, i) =>

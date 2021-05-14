@@ -5,7 +5,12 @@ export default {
     type: "document",
     fields: [
         {
+            name: "heroSmallText",
+            type: "string"
+        },
+        {
             name: "heroText",
+            title: "Hero Introduction",
             type: "array",
             of: [{ type: "block" }],
             validation: Rule => Rule.required()

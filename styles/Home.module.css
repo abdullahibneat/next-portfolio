@@ -22,11 +22,18 @@
     padding: calc(6rem + 7px) 0; /* Padding same as navbar space */
 }
 
+.heroTextContainer {
+    text-align: center;
+}
+
+.heroTextContainer > * + * {
+    margin-top: 1rem;
+}
+
 .heroText {
     font-size: 1.75rem;
     font-weight: 700;
     padding-bottom: 5rem;
-    text-align: center;
 }
 
 .heroText strong {
@@ -108,9 +115,16 @@
         flex: 1;
     }
 
+    .heroTextContainer {
+        text-align: initial;
+    }
+
+    .heroTextContainer > * + * {
+        margin-top: 0;
+    }
+
     .heroText {
         font-size: 2.5rem;
-        text-align: initial;
         padding-bottom: 0;
         padding-right: 2rem;
     }
