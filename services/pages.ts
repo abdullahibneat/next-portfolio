@@ -11,6 +11,7 @@ export const getHomepage: () => Promise<HomeProps> = async () => {
             },
             "featuredProjects": featuredProjects[]-> {
                 ...,
+                "slug": slug.current,
                 "categories": categories[]->name,
                 "mockup": mockup.asset->url,
                 "featuredImage": featuredImage.asset->url
