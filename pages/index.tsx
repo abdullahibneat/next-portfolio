@@ -14,16 +14,19 @@ import Skills from "@components/Skills"
 import { getHomepage } from "services/pages"
 import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
+import ProjectCard from "@components/ProjectCard"
+import Link from "next/link"
 
 export type HomeProps = {
     heroText: any,
     featuredProjects?: Project[],
     skillsText: any,
     skills?: Skill[],
+    latestProject?: Project,
     testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skillsText, skills = [], testimonials }) => <>
+const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skillsText, skills = [], latestProject, testimonials }) => <>
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
@@ -52,6 +55,16 @@ const Home: FunctionComponent<HomeProps> = ({ heroText, featuredProjects, skills
         </div>
         <Skills skills={skills} />
     </Section>
+    {latestProject && <Section>
+        <div className={styles.latestProjectTitle}>
+            <h2>Latest project</h2>
+        </div>
+        <div/> {/* Empty div to make Project card 3rd child (i.e. odd) so mockup image is on left side */}
+        <ProjectCard className={styles.latestProject} {...latestProject} />
+        <Link href="/projects">
+            <button className={styles.moreProjects}>More projects ➔</button>
+        </Link>
+    </Section>}
     <Carousel style={{ marginBottom: "5rem" }}>
         {testimonials.map((q, i) => <QuoteBox key={i} {...q} />)}
     </Carousel>

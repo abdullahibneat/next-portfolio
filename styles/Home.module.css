@@ -69,6 +69,32 @@
     word-break: break-all;
 }
 
+/* LATEST PROJECT SECTION */
+
+.latestProjectTitle, .moreProjects {
+    margin: 0 auto;
+}
+
+.latestProjectTitle {
+    width: 100%;
+    max-width: 60ch;
+}
+
+.latestProject {
+    margin: 2rem auto;
+}
+
+.moreProjects, .moreProjects:hover {
+    box-shadow: none;
+}
+
+.moreProjects {
+    display: block;
+    background: var(--text);
+    color: var(--background);
+    font-size: 1rem;
+}
+
 @media only screen and (min-width: 800px) {
     .hero {
         background-size: 70% 70%;
@@ -92,5 +118,9 @@
     .swiper {
         margin: 0 auto;
         max-width: 400px;
+    }
+
+    .latestProject {
+        margin: 3rem auto 2rem;
     }
 }
