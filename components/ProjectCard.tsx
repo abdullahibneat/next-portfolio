@@ -5,8 +5,8 @@ import Link from "next/link"
 import { sanityLoader } from "@sanityClient"
 import Img from "next/image"
 
-const ProjectCard: FunctionComponent<Project> = ({ title, mockup, slug, github = undefined, live = undefined, summary }) =>
-    <div className={styles.container}>
+const ProjectCard: FunctionComponent<Project & { className?: string }> = ({ className = "", title, mockup, slug, github = undefined, live = undefined, summary }) =>
+    <div className={`${styles.container} ${className}`}>
         <div className={styles.ft}>
             {mockup && <Img loader={sanityLoader} src={mockup} width={700} height={300} objectFit="contain" alt={title} />}
         </div>
