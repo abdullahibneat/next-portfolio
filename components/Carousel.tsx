@@ -17,11 +17,15 @@ const CarouselSlide: FunctionComponent<SlideProps> = ({ index, onCurrent = () =>
     const ref = useRef()
     
     useEffect(() => {
-        const io = new IntersectionObserver(([entry]) => setCurrent(entry.intersectionRatio >= 0.75), { threshold: [0, 0.25, 0.5, 0.75, 1] })
-        io.observe(ref.current)
+        if("IntersectionObserver" in window) {
+            const io = new IntersectionObserver(([entry]) => setCurrent(entry.intersectionRatio >= 0.75), { threshold: [0, 0.25, 0.5, 0.75, 1] })
+            io.observe(ref.current)
 
-        // Need to disconnect IntersectionObserver once slide is unmounted.
-        return () => { io.disconnect }
+            // Need to disconnect IntersectionObserver once slide is unmounted.
+            return () => { io.disconnect }
+        } else {
+            setCurrent(true)
+        }
     }, [])
 
     // Update carousel's current index if this slide is in view
