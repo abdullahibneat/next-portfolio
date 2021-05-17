@@ -1,0 +1,51 @@
+.container {
+    position: relative;
+}
+
+.container * {
+    font-size: 1rem;
+    color: var(--text);
+    font-family: inherit;
+}
+
+/* Hide the placeholder
+ * this is because placeholder visibility is used to animate the label position */
+.container input::placeholder,
+.container textarea::placeholder {
+    color: transparent;
+}
+
+.container input, .container textarea {
+    width: 100%;
+    padding: 0.8rem;
+    background: #e8e8e8;
+    border: none;
+}
+
+.container textarea {
+    min-height: 10rem;
+    resize: vertical;
+}
+
+.container label {
+    position: absolute;
+    top: 0.8rem; left: 0.8rem;
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+    transform-origin: bottom left;
+    transition: transform 250ms, opacity 250ms;
+    font-weight: bold;
+}
+
+/* Move label is placeholder is not visible (i.e. user entered some text) */
+.container input:not(:placeholder-shown) + label,
+.container textarea:not(:placeholder-shown) + label {
+    transform: translateY(-2.6rem) scale(0.8);
+    opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+    .container input, .container textarea {
+        background: #2c2c2c;
+    }
+}
