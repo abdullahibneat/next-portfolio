@@ -1,0 +1,43 @@
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.text {
+    margin: 2.5rem 0;
+}
+
+.form > div + div {
+    margin-top: 2.5rem;
+}
+
+.form button {
+    margin-top: 1rem;
+    width: fit-content;
+}
+
+.form .loading {
+    opacity: 0.5;
+}
+
+@media only screen and (min-width: 900px) {
+    .title {
+        text-align: initial;
+    }
+    
+    .form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+    }
+
+    .form > div + div,
+    .form button {
+        margin-top: 0;
+    }
+
+    /* Textarea */
+    .form div:nth-child(3) {
+        grid-column: 1 / -1;
+    }
+}
