@@ -3,7 +3,9 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Section from "@components/Section"
 import styles from "@styles/Navbar.module.css"
-import Logo from "./Logo"
+// SVGR has no type definitions, so ignore ts warning
+// @ts-ignore
+import Logo from "../public/logo.svg"
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
