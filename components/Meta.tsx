@@ -20,6 +20,9 @@ const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.des
     {/* Default meta tags */}
     <title>{makeTitle(title)}</title>
     <meta name="description" content={description} />
+    {/* Use svg logo as favicon, fallback to .ico if svg not supported */}
+    <link rel="icon" type="image/svg+xml" href="/logo.svg" />
+    <link rel="alternate icon" href="/favicon.ico" />
 
     {/* Open Graph */}
     <meta property="og:url" content={defaultConfig.url + path} key="ogurl" />
