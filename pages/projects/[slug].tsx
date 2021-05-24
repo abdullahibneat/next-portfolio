@@ -6,10 +6,12 @@ import { Project } from "types"
 import BlockContent from "@sanity/block-content-to-react"
 import sanityClient, { getImage } from "@sanityClient"
 import ProjectHeader from "@components/ProjectHeader"
-import styles from "@styles/ProjectLayout.module.css"
+import getYoutubeID from "get-youtube-id"
 import QuoteBox from "@components/QuoteBox"
 import { getAllSlugs, getProjectBySlug } from "services/projects"
 import ImageModal from "@components/ImageModal"
+import styles from "@styles/ProjectLayout.module.css"
+import YouTube from "react-youtube"
 
 const serializers = {
     types: {
@@ -17,7 +19,8 @@ const serializers = {
             const { quote, author, jobTitle } = node
             return <QuoteBox className={styles.quote} quote={quote} author={author} jobTitle={jobTitle} />
         },
-        "image": ({ node }) => <ImageModal image={node} width={852} height={480} alt={node.alt} />
+        "image": ({ node }) => <ImageModal image={node} width={852} height={480} alt={node.alt} />,
+        "youtube": ({ node }) => <YouTube videoId={getYoutubeID(node.url)} />
     }
 }
 
