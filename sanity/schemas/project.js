@@ -81,6 +81,9 @@ export default {
                 },
                 {
                     type: "quote"
+                },
+                {
+                    type: "youtube"
                 }
             ]
         }
