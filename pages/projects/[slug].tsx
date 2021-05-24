@@ -20,7 +20,7 @@ const serializers = {
             return <QuoteBox className={styles.quote} quote={quote} author={author} jobTitle={jobTitle} />
         },
         "image": ({ node }) => <ImageModal image={node} width={852} height={480} alt={node.alt} />,
-        "youtube": ({ node }) => <YouTube videoId={getYoutubeID(node.url)} />
+        "youtube": ({ node }) => <YouTube className={styles.youtube} videoId={getYoutubeID(node.url)} />
     }
 }
 
