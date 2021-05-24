@@ -1,5 +1,3 @@
-import quote from "../types/quote";
-
 export default {
     name: "project",
     type: "document",
@@ -81,7 +79,9 @@ export default {
                         }
                     }]
                 },
-                quote
+                {
+                    type: "quote"
+                }
             ]
         }
     ],

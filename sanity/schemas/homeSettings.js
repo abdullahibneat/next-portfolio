@@ -1,5 +1,3 @@
-import quote from "../types/quote"
-
 export default {
     name: "homeSettings",
     type: "document",
@@ -52,7 +50,7 @@ export default {
         {
             name: "testimonials",
             type: "array",
-            of: [quote],
+            of: [{ type: "quote" }],
             validation: Rule => Rule.required()
         }
     ]

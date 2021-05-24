@@ -7,6 +7,7 @@ import project from './project'
 import category from './category'
 import siteSettings from "./siteSettings"
 import homeSettings from './homeSettings'
+import quote from './quote'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -19,6 +20,7 @@ export default createSchema({
         project,
         category,
         siteSettings,
-        homeSettings
+        homeSettings,
+        quote
     ]),
 })
