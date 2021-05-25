@@ -87,8 +87,5 @@ export default {
                 }
             ]
         }
-    ],
-    initialValue: {
-        featured: false
-    }
+    ]
 }
