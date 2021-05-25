@@ -10,7 +10,7 @@ const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, githu
             <h1>{title}</h1>
             <p>{summary}</p>
             <div>
-                {live && <a href={live} target="__blank"><button>See website →</button></a>}
+                {live && <a href={live} target="__blank"><button>See it in action →</button></a>}
                 {github && <a href={github} target="__blank"><button>See source code →</button></a>}
             </div>
         </div>
