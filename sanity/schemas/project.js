@@ -1,3 +1,7 @@
+import React from "react"
+import { MediaEditor } from "sanity-plugin-asset-source-ogimage"
+import OGImage from "../OGImage"
+
 export default {
     name: "project",
     type: "document",
@@ -45,7 +49,19 @@ export default {
             fields: [{
                 name: "alt",
                 type: "string"
-            }]
+            }],
+            options: {
+                sources: [
+                    {
+                        name: "generate-ogimage",
+                        title: "Generate OG Image",
+                        component: props => <MediaEditor
+                                {...props}
+                                layouts={[ OGImage ]}
+                            />
+                    }
+                ]
+            }
         },
         {
             name: "github",
