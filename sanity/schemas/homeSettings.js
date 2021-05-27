@@ -26,6 +26,7 @@ export default {
         },
         {
             name: "skills",
+            description: "A couple of SVG logo repositories: https://svgporn.com/, https://vectorlogo.zone/",
             type: "array",
             of: [{
                 type: "object",
