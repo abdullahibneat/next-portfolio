@@ -15,7 +15,7 @@ const FeaturedProject: FunctionComponent<Project> = ({ title, categories, summar
         <div>
             <Link href={`projects/${slug}`}><button>Read more</button></Link>
         </div>
-        {mockup && <div className={styles.ft}><Img loader={sanityLoader} src={mockup} width={300} height={150} alt={title} objectFit="contain" /></div>}
+        {mockup && <div className={styles.ft}><Img draggable={false} loader={sanityLoader} src={mockup} width={300} height={150} alt={title} objectFit="contain" /></div>}
     </div>
 
 export default FeaturedProject
