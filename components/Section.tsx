@@ -1,12 +1,13 @@
-import { FunctionComponent } from "react"
+import { CSSProperties, FunctionComponent } from "react"
 import styles from "@styles/Section.module.css"
 
 export type SectionProps = {
-    className?: String
+    className?: String,
+    style?: CSSProperties
 }
 
-const Section: FunctionComponent<SectionProps> = ({ children, className = "" }) =>
-    <section className={`${styles.section} ${className}`}>
+const Section: FunctionComponent<SectionProps> = ({ children, className = "", style = {} }) =>
+    <section className={`${styles.section} ${className}`} style={style}>
         {children}
     </section>
 
