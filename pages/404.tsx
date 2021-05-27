@@ -2,7 +2,7 @@ import Meta from "@components/Meta"
 import Section from "@components/Section"
 import Link from "next/link"
 
-export default () =>
+const Error = () =>
     <Section style={{ flex: 1, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center" }}>
         <Meta title="Page not found" />
         <h1>Error 404</h1>
@@ -12,3 +12,5 @@ export default () =>
         </div>
         <Link href="/"><button>Return to homepage</button></Link>
     </Section>
+
+export default Error
