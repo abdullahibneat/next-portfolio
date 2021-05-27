@@ -23,8 +23,12 @@
     filter: drop-shadow(0 0 1px rgba(0,0,0,0.1));
 }
 
+.container a {
+    display: inline-block;
+}
+
 .container a:not(:last-of-type) {
-    margin-right: 1rem;
+    margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 900px) {
@@ -39,5 +43,10 @@
     .container .ft {
         margin-top: 0;
         padding-left: 2rem;
+    }
+
+    .container a:not(:last-of-type) {
+        margin-right: 1rem;
+        margin-bottom: 0;
     }
 }
