@@ -112,5 +112,6 @@
         grid-column: 2 / span 2;
         backdrop-filter: blur(2px);
         box-shadow: rgba(0, 0, 0, 0.15) 0px 1px 5px;
+        z-index: 1;
     }
 }
