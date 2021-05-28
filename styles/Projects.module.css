@@ -1,12 +1,10 @@
 h1.title {
     font-size: 2rem;
-    margin-bottom: 2.5rem;
     text-align: center;
 }
 
 .categories {
-    padding: 0.5rem 0;
-    margin-bottom: 2.5rem;
+    margin: 1rem 0 2.5rem;
     white-space: nowrap;
     overflow-x: auto;
 }
@@ -14,6 +12,7 @@ h1.title {
 .categories span {
     display: inline-block;
     padding: 0.5rem 1rem;
+    margin-top: 0.5rem;
     margin-right: 0.5rem;
     border: solid 2px var(--primary-color);
     border-radius: 0.75rem;
@@ -37,6 +36,10 @@ h1.title {
 @media only screen and (min-width: 900px) {
     h1.title {
         text-align: initial;
+    }
+
+    .categories {
+        white-space: initial;
     }
 
     .projects > div + div {
