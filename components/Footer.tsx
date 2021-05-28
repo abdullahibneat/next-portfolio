@@ -9,7 +9,7 @@ const Footer: FunctionComponent = () => <>
         <div>
             <p>Do you have a project in mind? Or need help in your company? If so, feel free to contact me.</p>
             <div>
-                <Link href="/contact"><button>Let's talk →</button></Link>
+                <Link href="/contact"><button>Let's talk ➔</button></Link>
             </div>
         </div>
     </Section>
