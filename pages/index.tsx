@@ -20,6 +20,7 @@ import Link from "next/link"
 export type HomeProps = {
     heroSmallText?: string,
     heroText: any,
+    github?: string,
     featuredProjects?: Project[],
     skillsText: any,
     skills?: Skill[],
@@ -27,7 +28,7 @@ export type HomeProps = {
     testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, featuredProjects, skillsText, skills = [], latestProject, testimonials }) => <>
+const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, github, featuredProjects, skillsText, skills = [], latestProject, testimonials }) => <>
     <Meta title="Home" />
     <HeroSection className={styles.hero}>
         <Section className={styles.heroContent}>
@@ -38,6 +39,8 @@ const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, featuredP
                         blocks={heroText}
                         {...sanityClient.config()} />
                 </div>
+                {github && <a href={`https://github.com/${github}`} target="_blank"><button>GitHub profile ➔</button></a>}
+                <Link href="/projects"><button>All projects ➔</button></Link>
             </div>
             {featuredProjects && <div className={styles.heroProjects}>
                 <Swiper shakeFirst zDistance={150} className={styles.swiper}>

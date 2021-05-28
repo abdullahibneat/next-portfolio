@@ -24,6 +24,7 @@
 
 .heroTextContainer {
     text-align: center;
+    padding-bottom: 5rem;
 }
 
 .heroTextContainer > * + * {
@@ -33,13 +34,18 @@
 .heroText {
     font-size: 1.75rem;
     font-weight: 700;
-    padding-bottom: 5rem;
 }
 
 .heroText strong {
     color: var(--primary-color);
     text-decoration: underline 3px;
     text-decoration-style: wavy;
+}
+
+.heroTextContainer button {
+    margin-top: 1rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
 }
 
 .heroProjects {
