@@ -39,7 +39,7 @@ const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, github, f
                         blocks={heroText}
                         {...sanityClient.config()} />
                 </div>
-                {github && <a href={`https://github.com/${github}`} target="_blank"><button>GitHub profile ➔</button></a>}
+                {github && <a href={`https://github.com/${github}`} target="_blank" rel="noopener"><button>GitHub profile ➔</button></a>}
                 <Link href="/projects"><button>All projects ➔</button></Link>
             </div>
             {featuredProjects && <div className={styles.heroProjects}>

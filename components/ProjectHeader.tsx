@@ -10,8 +10,8 @@ const ProjectHeader: FunctionComponent<Project> = ({ title, summary, live, githu
             <h1>{title}</h1>
             <p>{summary}</p>
             <div>
-                {live && <a href={live} target="__blank"><button>See it in action →</button></a>}
-                {github && <a href={github} target="__blank"><button>See source code →</button></a>}
+                {live && <a href={live} target="_blank" rel="noopener"><button>See it in action →</button></a>}
+                {github && <a href={github} target="_blank" rel="noopener"><button>See source code →</button></a>}
             </div>
         </div>
         {mockup && <div className={styles.ft}><Img loader={sanityLoader} src={mockup} width={600} height={600} alt={title} objectFit="contain" /></div>}

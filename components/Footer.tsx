@@ -20,7 +20,7 @@ const Footer: FunctionComponent = () => <>
         <div className={styles.container}>
             <p>&copy; Abdullah Ibne Atiq</p>
             <div>
-                <a href={`https://github.com/${github}`} target="_blank">GitHub</a> <span>•</span> <Link href="/contact">Contact</Link>
+                <a href={`https://github.com/${github}`} target="_blank" rel="noopener">GitHub</a> <span>•</span> <Link href="/contact">Contact</Link>
             </div>
         </div>
     </footer>
