@@ -3,3 +3,7 @@
     max-width: 1200px;
     margin: 5rem auto;
 }
+
+.section:not(:first-of-type) + .section {
+    margin-top: 0;
+}

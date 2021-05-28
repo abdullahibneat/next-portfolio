@@ -73,7 +73,7 @@ const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, github, f
             <button className={styles.moreProjects}>More projects ➔</button>
         </Link>
     </Section>}
-    <Carousel style={{ marginBottom: "5rem" }}>
+    <Carousel>
         {testimonials.map((q, i) => <QuoteBox key={i} {...q} />)}
     </Carousel>
 </>
