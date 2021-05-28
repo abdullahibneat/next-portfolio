@@ -2,6 +2,9 @@ import { FunctionComponent } from "react"
 import Section from "@components/Section"
 import Link from "next/link"
 import styles from "@styles/Footer.module.css"
+import { getSettings } from "services/settings"
+
+const { github } = await getSettings()
 
 const Footer: FunctionComponent = () => <>
     <Section className={styles.contact}>
@@ -17,7 +20,7 @@ const Footer: FunctionComponent = () => <>
         <div className={styles.container}>
             <p>&copy; Abdullah Ibne Atiq</p>
             <div>
-                <Link href="#">GitHub</Link> <span>•</span> <Link href="/contact">Contact</Link>
+                <a href={`https://github.com/${github}`} target="_blank">GitHub</a> <span>•</span> <Link href="/contact">Contact</Link>
             </div>
         </div>
     </footer>
