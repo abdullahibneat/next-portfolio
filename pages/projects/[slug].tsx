@@ -48,7 +48,8 @@ export const getStaticProps: GetStaticProps<Project> = async ({ params }) => {
 
     const data: Project = await getProjectBySlug(slug as string)
     return {
-        props: data
+        props: data,
+        revalidate: 60 // Enable Incremental Static Regeneration (60 seconds)
     }
 }
 
