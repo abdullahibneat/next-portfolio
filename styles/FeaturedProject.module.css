@@ -11,14 +11,11 @@
     font-size: 2rem;
 }
 
-.container .categories {
-    margin-top: 0.5rem;
-}
-
 .container .categories > span {
     display: inline-block;
     font-size: 0.75rem;
     padding: 0.3rem 0.6rem;
+    margin-top: 0.3rem;
     margin-right: 0.3rem;
     border: solid 2px var(--primary-color);
     border-radius: 0.75rem;
