@@ -20,15 +20,15 @@ export default () =>
                                 [
                                     S.listItem()
                                         .title("General")
-                                        .child(getSingleton("siteSettings")),
+                                        .child(getSingleton("siteSettings").title("General settings")),
 
                                     S.listItem()
                                         .title("Homepage")
-                                        .child(getSingleton("homeSettings")),
+                                        .child(getSingleton("homeSettings").title("Homepage settings")),
 
                                     S.listItem()
                                         .title("Contact")
-                                        .child(getSingleton("contactSettings")),
+                                        .child(getSingleton("contactSettings").title("Contact page settings")),
                                 ]
                             )
                     ),
