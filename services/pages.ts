@@ -1,6 +1,7 @@
 import { HomeProps } from "pages"
 import sanityClient from "@sanityClient"
 import { PROJECT_FIELDS } from "./projects"
+import { ContactProps } from "pages/contact"
 
 export const getHomepage: () => Promise<HomeProps> = async () => {
     const home = await sanityClient.fetch(`
@@ -31,4 +32,16 @@ export const getHomepage: () => Promise<HomeProps> = async () => {
     `) as HomeProps
 
     return home
+}
+
+export const getContact: () => Promise<ContactProps> = async () => {
+    const contact = await sanityClient.fetch(`
+    {
+        ...*[_type == "contactSettings"][0] {
+            contactText,
+            formspreeEndpoint
+        }
+    }
+    `) as ContactProps
+    return contact
 }
