@@ -20,7 +20,7 @@ export default {
             type: "string",
             validation: Rule => Rule
                 .required()
-                .custom(username => username.startsWith("@") ? "Remove the @ from the front" : true)
+                .custom(username => username?.startsWith("@") ? "Remove the @ from the front" : true)
         },
         {
             name: "twitter",
@@ -28,7 +28,7 @@ export default {
             type: "string",
             validation: Rule => Rule
                 .required()
-                .custom(username => username.startsWith("@") ? true : "Add the @ in front")
+                .custom(username => username?.startsWith("@") ? true : "Add the @ in front")
         },
         {
             name: "logo",
