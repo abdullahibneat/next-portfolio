@@ -3,15 +3,6 @@ export default {
     type: "document",
     fields: [
         {
-            name: "url",
-            description: "Address where the frontend is deployed.",
-            type: "url",
-            validation: Rule => Rule
-                .required()
-                .uri({ allowRelative: false })
-                .custom(url => url.endsWith("/")? "Please remove trailing slash" : true)
-        },
-        {
             name: "name",
             title: "Full name",
             type: "string",
