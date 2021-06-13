@@ -7,6 +7,7 @@ import project from './project'
 import category from './category'
 import siteSettings from "./siteSettings"
 import homeSettings from './homeSettings'
+import contactSettings from './contactSettings'
 import quote from './quote'
 import youtube from './youtube'
 
@@ -22,6 +23,7 @@ export default createSchema({
         category,
         siteSettings,
         homeSettings,
+        contactSettings,
         quote,
         youtube
     ]),

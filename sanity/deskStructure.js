@@ -3,7 +3,7 @@ import S from "@sanity/desk-tool/structure-builder"
 
 // Include singleton schema types here
 // This is used below to disable the creation of documents of these types
-const singletons = ["siteSettings", "homeSettings"]
+const singletons = ["siteSettings", "homeSettings", "contactSettings"]
 
 const getSingleton = schema => S.document().schemaType(schema).documentId(schema)
 
@@ -24,7 +24,11 @@ export default () =>
 
                                     S.listItem()
                                         .title("Homepage")
-                                        .child(getSingleton("homeSettings"))
+                                        .child(getSingleton("homeSettings")),
+
+                                    S.listItem()
+                                        .title("Contact")
+                                        .child(getSingleton("contactSettings")),
                                 ]
                             )
                     ),
