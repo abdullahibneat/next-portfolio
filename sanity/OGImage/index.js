@@ -7,11 +7,18 @@ const client = sanityClient.withConfig({apiVersion: "2021-05-07"})
 // Function to return the title, categories and image of a Project document
 const getFields = async _id => {
 	return await client.fetch(`
-		*[_id == $_id][0] {
+    {
+		...*[_id == $_id][0] {
 			title,
             "categories": categories[]->name,
             "image": mockup.asset->url,
-		}
+		},
+
+        // Get logo from site settings
+        ...*[_type == "siteSettings"][0] {
+            "logo": logo.asset->url
+        }
+    }
 	`, { _id })
 }
 
@@ -32,7 +39,7 @@ const Component = ({ _id, primaryColor }) => {
                 {data.categories.map((c, i) => <span key={i}>{c}</span>)}
             </div>}
             {data.image && <img className={styles.mockup} src={data.image} />}
-            <img className={styles.logo} src="/static/logo.svg" />
+            <img className={styles.logo} src={data.logo} />
         </div>
 
 

@@ -3,9 +3,11 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import Section from "@components/Section"
 import styles from "@styles/Navbar.module.css"
-// SVGR has no type definitions, so ignore ts warning
-// @ts-ignore
-import Logo from "../public/logo.svg"
+import { getSettings } from "services/settings"
+
+// Retrieve logo from site settings
+const settings = await getSettings()
+const logo = settings.logo
 
 const Navbar = () => {
     const [open, setOpen] = useState(false)
@@ -15,7 +17,9 @@ const Navbar = () => {
     useEffect(() => setOpen(false), [pathname])
 
     return <Section className={styles.container}>
-        <Link href="/"><a className={styles.logo} aria-label="logo"><Logo /></a></Link>
+        <Link href="/">
+            <img className={styles.logo} src={logo} alt="" />
+        </Link>
         <div className={`${styles.links} ${open? styles.mobile : ""}`}>
             <Link href="/"><a className={pathname === "/"? styles.currentPage : ""}>Home</a></Link>
             <Link href="/projects"><a className={pathname === "/projects"? styles.currentPage : ""}>Projects</a></Link>
