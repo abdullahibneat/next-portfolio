@@ -23,7 +23,7 @@ const Projects: FunctionComponent<props> = ({ projects }) => {
     const [currentCategory, setCategory] = useState("All")
 
     return <Section>
-        <Meta title="Projects" path="/projects" description="Interested in my previous work? Take a look at a collection of projects I've been involved in, ranging from personal projects to freelance work and including a variety of tools and technologies." />
+        <Meta title="Projects" description="Interested in my previous work? Take a look at a collection of projects I've been involved in, ranging from personal projects to freelance work and including a variety of tools and technologies." />
         <h1 className={styles.title}>Projects</h1>
         <div className={styles.categories}>
             {categories.map((c, i) =>

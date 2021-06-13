@@ -7,7 +7,6 @@ const defaultConfig = await getSettings()
 type Props = {
     title?: string,
     description?: string,
-    path?: string,
     image?: string
 }
 
@@ -16,7 +15,7 @@ const makeTitle = (title?: string) => {
     return title + " | " + defaultConfig.name
 }
 
-const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.description, path = "/", image = defaultConfig.image }) => <Head>
+const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.description, image = defaultConfig.image }) => <Head>
     {/* Default meta tags */}
     <title>{makeTitle(title)}</title>
     <meta name="description" content={description} />
@@ -25,7 +24,6 @@ const Meta: FunctionComponent<Props> = ({ title, description = defaultConfig.des
     <link rel="alternate icon" href="/favicon.ico" />
 
     {/* Open Graph */}
-    <meta property="og:url" content={defaultConfig.url + path} key="ogurl" />
     <meta property="og:title" content={makeTitle(title)} key="ogtitle" />
     <meta property="og:description" content={description} key="ogdesc" />
     <meta property="og:image" content={image} key="ogimage" />

@@ -38,7 +38,7 @@ const Contact: FunctionComponent<ContactProps> = ({ contactText = "", formspreeE
     }
 
     return <Section className={styles.contact}>
-        <Meta title="Contact" path="/contact" description="Do you have a project in mind? Or need help in your company? If so, feel free to contact me with your query and I will get in touch as soon as possible." />
+        <Meta title="Contact" description="Do you have a project in mind? Or need help in your company? If so, feel free to contact me with your query and I will get in touch as soon as possible." />
         <h1 className={styles.title}>Contact</h1>
         {contactText && <p className={styles.text}>{contactText}</p>}
         <form className={`${styles.form} ${loading? styles.loading : ""}`} onSubmit={handleSubmit}>
