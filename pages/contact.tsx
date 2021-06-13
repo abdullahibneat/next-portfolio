@@ -3,9 +3,16 @@ import Meta from "@components/Meta"
 import Section from "@components/Section"
 import styles from "@styles/Contact.module.css"
 import useModal from "hooks/useModal"
-import { useState, FormEventHandler } from "react"
+import { GetStaticProps } from "next"
+import { useState, FormEventHandler, FunctionComponent } from "react"
+import { getContact } from "services/pages"
 
-const Contact = () => {
+export type ContactProps = {
+    contactText?: string,
+    formspreeEndpoint: string
+}
+
+const Contact: FunctionComponent<ContactProps> = ({ contactText = "", formspreeEndpoint }) => {
     const [loading, setLoading] = useState(false)
     const [sent, setSent] = useState(false)
     const [error, setError] = useState(false)
@@ -24,7 +31,7 @@ const Contact = () => {
         }
 
         // Send form data using FormSpree
-        fetch(process.env.NEXT_PUBLIC_FORMSPREE, req)
+        fetch(formspreeEndpoint, req)
             .then(() => { setSent(true); form.reset() })
             .catch(() => setError(true))
             .finally(() => show())
@@ -33,7 +40,7 @@ const Contact = () => {
     return <Section className={styles.contact}>
         <Meta title="Contact" path="/contact" description="Do you have a project in mind? Or need help in your company? If so, feel free to contact me with your query and I will get in touch as soon as possible." />
         <h1 className={styles.title}>Contact</h1>
-        <p className={styles.text}>Do you have a project in mind? Or need help in your company? If so, feel free to contact me.</p>
+        {contactText && <p className={styles.text}>{contactText}</p>}
         <form className={`${styles.form} ${loading? styles.loading : ""}`} onSubmit={handleSubmit}>
             <Input name="name" label="Name" />
             <Input name="email" label="Email" type="email" />
@@ -45,6 +52,15 @@ const Contact = () => {
             {error && <p>Unfortunately an error occurred.</p>}
         </Modal>
     </Section>
+}
+
+export const getStaticProps: GetStaticProps<ContactProps> = async _ => {
+    const contact = await getContact()
+    return {
+        props: {
+            ...contact
+        }
+    }
 }
 
 export default Contact
