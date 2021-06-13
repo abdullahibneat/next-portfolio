@@ -9,6 +9,7 @@ export const getSettings: () => Promise<SiteSettings> = async () => {
             description,
             github,
             twitter,
+            "logo": logo.asset->url,
             "image": image.asset->url
         }
     `) as SiteSettings

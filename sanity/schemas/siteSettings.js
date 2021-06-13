@@ -40,6 +40,11 @@ export default {
                 .custom(username => username.startsWith("@") ? true : "Add the @ in front")
         },
         {
+            name: "logo",
+            type: "image",
+            validation: Rule => Rule.required()
+        },
+        {
             name: "image",
             description: "Image that appears when your portfolio is shared on social media.",
             type: "image",

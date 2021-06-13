@@ -27,5 +27,6 @@ export type SiteSettings = {
     description: string,
     github: string,
     twitter: string,
+    logo: string,
     image: string
 }
