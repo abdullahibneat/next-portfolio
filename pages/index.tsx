@@ -16,6 +16,7 @@ import BlockContent from "@sanity/block-content-to-react"
 import sanityClient from "@sanityClient"
 import ProjectCard from "@components/ProjectCard"
 import Link from "next/link"
+import { transformText } from "utils"
 
 export type HomeProps = {
     heroSmallText?: string,
@@ -36,7 +37,7 @@ const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, github, f
                 {heroSmallText && <div>{heroSmallText}</div>}
                 <div className={styles.heroText}>
                     <BlockContent
-                        blocks={heroText}
+                        blocks={heroText.map(t => transformText(t))}
                         {...sanityClient.config()} />
                 </div>
                 {github && <a href={`https://github.com/${github}`} target="_blank" rel="noopener"><button>GitHub profile ➔</button></a>}
