@@ -5,7 +5,7 @@ import { ImageLoader } from "next/image"
 
 const client = sanityClient({
     // Retrieve the projectID from the Sanity studio config file
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    projectId: process.env.SANITY_STUDIO_API_PROJECT_ID,
     dataset: "production",
     useCdn: process.env.NODE_ENV === "production",
     apiVersion: "2021-04-10"

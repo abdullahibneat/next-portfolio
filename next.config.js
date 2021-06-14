@@ -10,4 +10,7 @@ module.exports = {
           })
         return config
     },
+    env: {
+        SANITY_STUDIO_API_PROJECT_ID: process.env.SANITY_STUDIO_API_PROJECT_ID
+    }
 }
