@@ -3,14 +3,16 @@ import Section from "@components/Section"
 import Link from "next/link"
 import styles from "@styles/Footer.module.css"
 import { getSettings } from "services/settings"
+import { getContact } from "services/pages"
 
 const { github, name } = await getSettings()
+const { contactText } = await getContact()
 
 const Footer: FunctionComponent = () => <>
     <Section className={styles.contact}>
         <h2>💬 Get in touch</h2>
         <div>
-            <p>Do you have a project in mind? Or need help in your company? If so, feel free to contact me.</p>
+            <p>{contactText}</p>
             <div>
                 <Link href="/contact"><button>Let's talk ➔</button></Link>
             </div>
