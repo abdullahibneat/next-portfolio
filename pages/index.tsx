@@ -59,7 +59,7 @@ const Home: FunctionComponent<HomeProps> = ({ heroSmallText, heroText, github, f
         <h1>Skills</h1>
         <div className={styles.skillsText}>
             <BlockContent
-                blocks={skillsText}
+                blocks={skillsText.map(t => transformText(t))}
                 {...sanityClient.config()} />
         </div>
         <Skills skills={skills} />
