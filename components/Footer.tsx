@@ -4,7 +4,7 @@ import Link from "next/link"
 import styles from "@styles/Footer.module.css"
 import { getSettings } from "services/settings"
 
-const { github } = await getSettings()
+const { github, name } = await getSettings()
 
 const Footer: FunctionComponent = () => <>
     <Section className={styles.contact}>
@@ -18,7 +18,7 @@ const Footer: FunctionComponent = () => <>
     </Section>
     <footer className={styles.footer}>
         <div className={styles.container}>
-            <p>&copy; Abdullah Ibne Atiq</p>
+            <p>&copy; {name}</p>
             <div>
                 <a href={`https://github.com/${github}`} target="_blank" rel="noopener">GitHub</a> <span>•</span> <Link href="/contact">Contact</Link>
             </div>
