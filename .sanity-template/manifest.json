@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "title": "Next Portfolio",
+    "description": "A portoflio website to showcase your software projects using Sanity and NextJS",
+    "previewMedia": {
+        "type": "image",
+        "src": ".sanity-template/cover.png",
+        "alt": "The homepage of the portfolio"
+    },
+    "technologies": [
+        {
+            "id": "vercel",
+            "name": "Vercel",
+            "url": "https://vercel.com/"
+        },
+        {
+            "id": "nextjs",
+            "name": "Next.js",
+            "url": "https://nextjs.org"
+        }
+    ],
+    "deployment": {
+        "provider": "vercel",
+        "studio": {
+            "basePath": "/sanity"
+        },
+        "corsOrigins": [
+            {
+                "origin": "http://localhost:3000",
+                "allowCredentials": true
+            }
+        ]
+    }
+}
