@@ -5,9 +5,12 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:sanity && npm run build:web",
+    "build:web": "next build",
+    "build:sanity": "cd sanity && npx sanity build ../public/sanity -y && cd ..",
     "export": "next build && next export",
-    "start": "next start"
+    "start": "next start",
+    "postinstall": "cd sanity && sanity install"
   },
   "author": "",
   "license": "ISC",

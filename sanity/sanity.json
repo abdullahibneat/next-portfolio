@@ -1,7 +1,8 @@
 {
     "root": true,
     "project": {
-        "name": "sanity"
+        "name": "sanity",
+        "basePath": "/sanity"
     },
     "api": {
         "dataset": "production"
