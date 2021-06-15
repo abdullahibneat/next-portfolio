@@ -4,6 +4,7 @@ import OGImage from "../OGImage"
 
 export default {
     name: "project",
+    title: "Projects",
     type: "document",
     fields: [
         {
