@@ -9,7 +9,7 @@ const client = sanityClient({
 })
 
 module.exports = {
-    future: { webpack5: true },
+    // Enable top-level await
     webpack: config => {
         config.experiments = { topLevelAwait: true }
         return config
