@@ -10,6 +10,7 @@ import homeSettings from './homeSettings'
 import contactSettings from './contactSettings'
 import quote from './quote'
 import youtube from './youtube'
+import redirects from './redirects'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -25,6 +26,7 @@ export default createSchema({
         homeSettings,
         contactSettings,
         quote,
-        youtube
+        youtube,
+        redirects
     ]),
 })
