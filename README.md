@@ -21,6 +21,7 @@ Want to host your own portfolio using this template? Click the button below and 
 - SEO friendly projects and pages
 - Social image generator for projects
 - Easy contact form setup using Formspree
+- Set up redirects from Sanity studio
 
 ## Get started
 
