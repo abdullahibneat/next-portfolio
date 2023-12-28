@@ -22,7 +22,6 @@ export type Quote = {
 }
 
 export type SiteSettings = {
-    url: string,
     name: string,
     description: string,
     github: string,
