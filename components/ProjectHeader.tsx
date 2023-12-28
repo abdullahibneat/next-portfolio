@@ -1,16 +1,9 @@
-import { FunctionComponent } from 'react'
 import styles from '@styles/ProjectHeader.module.css'
 import { Project } from 'types'
 import { sanityLoader } from '@sanityClient'
 import Img from 'next/image'
 
-const ProjectHeader: FunctionComponent<Project> = ({
-  title,
-  summary,
-  live,
-  github,
-  mockup,
-}) => (
+const ProjectHeader = ({ title, summary, live, github, mockup }: Project) => (
   <div className={styles.container}>
     <div>
       <h1>{title}</h1>

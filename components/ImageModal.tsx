@@ -1,5 +1,4 @@
 import { SanityImageSource } from '@sanity/image-url/lib/types/types'
-import { FunctionComponent } from 'react'
 import Img from 'next/image'
 import { getImage, sanityLoader } from '@sanityClient'
 import useModal from 'hooks/useModal'
@@ -12,12 +11,7 @@ type Props = {
   alt?: string
 }
 
-const ImageModal: FunctionComponent<Props> = ({
-  image,
-  width,
-  height,
-  alt,
-}) => {
+const ImageModal = ({ image, width, height, alt }: Props) => {
   const { Modal, show } = useModal()
   return (
     <div>

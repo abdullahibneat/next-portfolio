@@ -1,17 +1,16 @@
-import { FunctionComponent } from 'react'
 import { Project } from 'types'
 import styles from '@styles/FeaturedProject.module.css'
 import { sanityLoader } from '@sanityClient'
 import Img from 'next/image'
 import { useRouter } from 'next/router'
 
-const FeaturedProject: FunctionComponent<Project> = ({
+const FeaturedProject = ({
   title,
   categories,
   summary,
   mockup,
   slug,
-}) => {
+}: Project) => {
   const router = useRouter()
 
   return (

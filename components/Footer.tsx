@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react'
+import {} from 'react'
 import Section from '@components/Section'
 import styles from '@styles/Footer.module.css'
 import { getSettings } from 'services/settings'
@@ -9,7 +9,7 @@ import Link from 'next/link'
 const { github, name } = await getSettings()
 const { contactText } = await getContact()
 
-const Footer: FunctionComponent = () => {
+const Footer = () => {
   const router = useRouter()
 
   return (

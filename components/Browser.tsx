@@ -1,19 +1,20 @@
-import { FunctionComponent } from "react"
-import styles from "@styles/Browser.module.css"
+import React from 'react'
+import styles from '@styles/Browser.module.css'
 
 type BrowserProps = {
-    className?: string
+  className?: string
+  children?: React.ReactNode
 }
 
-const Browser: FunctionComponent<BrowserProps> = ({ className = "", children }) => <div className={`${styles.browser} ${className}`}>
+const Browser = ({ className = '', children }: BrowserProps) => (
+  <div className={`${styles.browser} ${className}`}>
     <div className={styles.browserControls}>
-        <span/>
-        <span/>
-        <span/>
+      <span />
+      <span />
+      <span />
     </div>
-    <div className={styles.content}>
-        {children}
-    </div>
-</div>
+    <div className={styles.content}>{children}</div>
+  </div>
+)
 
 export default Browser

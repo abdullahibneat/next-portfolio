@@ -1,11 +1,12 @@
-import { FunctionComponent } from 'react'
 import { Project } from 'types'
 import styles from '@styles/ProjectCard.module.css'
 import { sanityLoader } from '@sanityClient'
 import Img from 'next/image'
 import { useRouter } from 'next/router'
 
-const ProjectCard: FunctionComponent<Project & { className?: string }> = ({
+type Props = Project & { className?: string }
+
+const ProjectCard = ({
   className = '',
   title,
   mockup,
@@ -13,7 +14,7 @@ const ProjectCard: FunctionComponent<Project & { className?: string }> = ({
   github = undefined,
   live = undefined,
   summary,
-}) => {
+}: Props) => {
   const router = useRouter()
 
   return (

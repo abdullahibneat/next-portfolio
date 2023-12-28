@@ -5,7 +5,6 @@ import HeroSection from '@components/HeroSection'
 import QuoteBox from '@components/QuoteBox'
 import Section from '@components/Section'
 import Swiper from '@components/Swiper'
-import { FunctionComponent } from 'react'
 import { GetStaticProps } from 'next'
 import { Project, Quote, Skill } from 'types'
 import FeaturedProject from '@components/FeaturedProject'
@@ -29,7 +28,7 @@ export type HomeProps = {
   testimonials: Quote[]
 }
 
-const Home: FunctionComponent<HomeProps> = ({
+const Home = ({
   heroSmallText,
   heroText,
   github,
@@ -38,7 +37,7 @@ const Home: FunctionComponent<HomeProps> = ({
   skills = [],
   latestProject,
   testimonials,
-}) => {
+}: HomeProps) => {
   const router = useRouter()
 
   return (
