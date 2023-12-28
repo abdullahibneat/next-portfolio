@@ -77,7 +77,8 @@ const Carousel = ({
     setTouch(
       'ontouchstart' in window ||
         navigator.maxTouchPoints > 0 ||
-        navigator.msMaxTouchPoints > 0
+        ('msMaxTouchPoints' in navigator &&
+          Number(navigator.msMaxTouchPoints) > 0)
     )
   }, [])
 
