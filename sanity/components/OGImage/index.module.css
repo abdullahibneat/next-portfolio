@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+.wrapper,
+.wrapper * {
+  padding: 0;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  background-color: white;
+}
+
+.container {
+  color: black;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.3) 1px, transparent 0);
+  background-size: 40px 40px;
+  font-size: 36px;
+  padding: 2em;
+  position: relative;
+}
+
+.container h1 {
+  font-size: 3em;
+}
+.categories > span {
+  font-size: 0.75em;
+  padding: 0.5em 0.75em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  border-radius: 100em;
+}
+
+.container img {
+  position: absolute;
+}
+
+.mockup {
+  bottom: 1em;
+  right: 1em;
+  max-height: 10em;
+  min-width: 10em;
+  max-width: 15em;
+  object-fit: contain;
+  object-position: bottom;
+  /* Drop shadow */
+  filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.1));
+}
+
+.logo {
+  width: 3em;
+  height: 3em;
+  bottom: 2em;
+}
