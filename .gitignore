@@ -4,3 +4,4 @@ out
 sanity/dist
 build
 public/sanity
+.env.local
