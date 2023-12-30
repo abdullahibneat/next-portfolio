@@ -8,6 +8,9 @@ const client = sanityClient({
   apiVersion: '2021-06-24',
 })
 
+/**
+ * @type {import('next').NextConfig}
+ */
 module.exports = {
   // Enable top-level await
   webpack: (config) => {
@@ -16,10 +19,19 @@ module.exports = {
   },
   env: {
     SANITY_STUDIO_PROJECT_ID: process.env.SANITY_STUDIO_PROJECT_ID,
+    SANITY_STUDIO_DATASET: process.env.SANITY_STUDIO_DATASET,
   },
   // Redirect all /sanity/:path to the Sanity Studio web app
   rewrites: async () => {
-    return [{ source: '/sanity*', destination: '/sanity/dist/index.html' }]
+    return [
+      {
+        source: '/sanity/:path*',
+        destination:
+          process.env.NODE_ENV === 'development'
+            ? 'http://localhost:3333*'
+            : '/studio/index.html',
+      },
+    ]
   },
   // Get redirect routes from Sanity
   redirects: async () => {

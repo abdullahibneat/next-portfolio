@@ -45,6 +45,8 @@ export default defineConfig({
 
   plugins: [deskTool({structure: deskStructure}), visionTool()],
 
+  basePath: '/sanity',
+
   schema: {
     types: schemaTypes,
   },
