@@ -5,11 +5,12 @@
   "main": "package.json",
   "license": "UNLICENSED",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
-    "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "dev": "yarn copy-env-files && sanity dev",
+    "start": "yarn copy-env-files && sanity start",
+    "build": "yarn copy-env-files && sanity build",
+    "deploy": "yarn copy-env-files && sanity deploy",
+    "deploy-graphql": "yarn copy-env-files && sanity graphql deploy",
+    "copy-env-files": "cp ../.env* ./"
   },
   "keywords": [
     "sanity"

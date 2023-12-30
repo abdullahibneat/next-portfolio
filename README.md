@@ -41,7 +41,7 @@ It will create a new Sanity project, deploy the website to Vercel, and set up al
 
 1.  Install the Sanity CLI globally: `yarn global add sanity@latest`
 2.  Clone the repo and run `yarn install`. This will install both template and Sanity dependencies
-3.  Update the `projectId` and `dataset` properties in `sanity/sanity.config.ts`
+3.  Make a copy of the `.env.local.example`, and set the environment variables
 4.  `cd sanity` and `sanity init` to create a new Sanity project (use default settings)
 5.  _Optional but highly recommended_: Load some sample content to Sanity:
 
@@ -56,7 +56,7 @@ sanity dataset import ../.sanity-template/data/production.tar.gz
     - You can find the Sanity project ID in `sanity/sanity.config.ts` or by visiting the [Sanity Manage](https://www.sanity.io/manage) page, select your project and it will be displayed near the top
 
 ```
-SANITY_STUDIO_API_PROJECT_ID=your_sanity_id_here
+SANITY_STUDIO_PROJECT_ID=your_sanity_id_here
 ```
 
 8.  Run `npm run dev`. The portfolio will be available at `http://localhost:3000`

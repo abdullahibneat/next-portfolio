@@ -40,8 +40,8 @@ const deskStructure: StructureResolver = (S) => {
 }
 
 export default defineConfig({
-  projectId: 'PROJECT_ID_HERE',
-  dataset: 'DATASET_HERE',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+  dataset: process.env.SANITY_STUDIO_DATASET || '',
 
   plugins: [deskTool({structure: deskStructure}), visionTool()],
 
